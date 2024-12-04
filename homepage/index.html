@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow-x: hidden; /* Verhindert horizontales Scrollen */
+        }
+
+        /* Hintergrundvideo */
+        #backgroundVideo {
+            position: fixed; /* Das Video bleibt im Hintergrund, auch beim Scrollen */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Das Video füllt die gesamte Breite */
+            height: 100vh; /* Das Video füllt die gesamte Höhe */
+            object-fit: cover; /* Das Video wird so skaliert, dass es den gesamten Bildschirm ausfüllt */
+            z-index: -1; /* Video bleibt im Hintergrund */
+        }
+
+        /* Inhalt der Seite */
+        .content {
+            position: relative; /* Setzt den Content über das Video */
+            z-index: 1; /* Stellt sicher, dass der Inhalt über dem Video angezeigt wird */
+            color: white; /* Damit der Text lesbar ist */
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .Container1 {
+            position: absolute;
+            right: 32px;
+            left: 32px;
+            top: 16px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2; /* Sicherstellen, dass der Container über dem Video ist */
+            
+        }
+
+        .Menü-link {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin-left: 16px;
+        }
+
+        .Menü-link:hover {
+            text-decoration: underline;
+        }
+
+        .Text1 {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 80px;
+            text-align: center;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+            gap: 100px; /* Abstand zwischen den Logos */
+            padding: 20px;
+            z-index: 1; /* Text bleibt über dem Video */
+            
+        }
+
+        .red {
+            color: red;
+            
+        }
+.black{ color: rgb(80, 78, 78);}
+        
+
+.ZweiterText {
+  margin-top: 200px;
+  position: bottom;
+  left: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  height: 300px;
+  z-index: 1; /* Sicherstellen, dass der Text auch über dem Video ist */
+}
+
+        .Half-width {
+            width: 50%;
+        }
+
+        
+        h2 {
+            text-align: center;
+            font-size: 45px;
+            height: 1000px;
+            padding: 30px 100px;
+            display: flex;
+            gap: 50px;
+            position: relative;
+            text-decoration: underline;
+        }
+
+
+
+.logo-container {
+    position: absolute; /* Verwenden von absolute, damit sich die Logos nicht mit dem Scrollen bewegen */
+    top: 60%; /* Vertikale Positionierung der Logos */
+    left: 50%; /* Horizontale Positionierung der Logos */
+    transform: translate(-50%, -50%); /* Zentriert die Logos exakt */
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+    gap: 100px;
+    padding: 20px;
+    z-index: 10; /* Sicherstellen, dass der Container über dem Video bleibt */
+}
+
+
+        /* Für kleinere Bildschirmgrößen */
+        @media (max-width: 700px) {
+            .ZweiterText {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Google Maps iFrame */
+        iframe {
+            
+            position: center;
+            z-index: 1; /* Stellt sicher, dass die Karte im Vordergrund ist */
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+.text4{
+
+    position: absolute;
+        
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 40px;
+            
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+           
+            padding: 20px;
+            z-index: 1; /* Text bleibt über dem Video */
+}
+
+    </style>
+</head>
+
+<body>
+
+<video autoplay muted loop id="backgroundVideo">
+    <source src="Video/stock-footage-vhs-synthwave-wireframe-net-seamless-loop-abstract-digital-background-s-s-retro-futurism.webm" type="video/mp4">
+    Ihr Browser unterstützt keine Videos.
+</video>
+
+
+<h1 
+
+class="Text1"> THE <span>  GAME </span>  ZONE 
+<br> PRESS <span class="red"> <u>  PLAY </u> </span> </br>
+ 
+
+</h1>
+
+
+
+
+
+<body>
+
+    <div class="logo-container">
+        <a href="https://loclahost:8060/tmp_js_export.html/"><img src="Bilder/Herunterladen.png" alt="Logo 1" class="logo"></a>
+        <a href="https://openai.com/index/hello-gpt-4o/"><img src="Bilder/New Piskel.png" alt="Logo 2" class="logo"></a>
+        <a href="https://openai.com/index/hello-gpt-4o/"><img src="Bilder/New Piskel.png" alt="Logo 3" class="logo"></a>
+    </div>
+    
+
+
+<h2></h2>
+
+
+
+<div class="Container1">
+    <img src="/Bilder/console1.png" alt="Console 1">
+    <div>
+        <a class="Menü-link" href="">Home</a>
+        <a class="Menü-link" href="">Games</a>
+        <a class="Menü-link" href="">Gästebuch</a>
+    </div>
+    <img src="Bilder/console1.png" alt="Console 2">
+</div>
+
+
+
+
+
+<div class="text4"><p><br><br><br><br> <u>GÄSTEBUCH </u></br></p></div>
+
+<div class="ZweiterText">
+    <!-- Google Map iFrame -->
+    <iframe
+      class="Half-width"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10070.123167785594!2d6.997565793941446!3d50.87688567938509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf2149a47ec6d7%3A0xb72ef2d7ac7decec!2sDiakonie%20Michaelshoven%20Berufsf%C3%B6rderungswerk%20K%C3%B6ln%20gGmbH!5e0!3m2!1sde!2sde!4v1730892141769!5m2!1sde!2sde"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p>
+        Bildungsgutschein: <br>
+        Umschulung Fachinformatiker*in für Anwendungsentwicklung in Köln. <br>
+        Die Umschulung dauert 24 Monate. Sie endet mit der IHK-IHK Prüfung.
+      </p>
+  </div>
+</body>
+
+</html>
+
+
+
+
