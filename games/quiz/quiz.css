@@ -47,18 +47,18 @@ body {
 .start_btn button {
   font-size: 25px;
   font-weight: 500;
-  color: #007bff;
+  color: black;
   padding: 15px 30px;
   outline: none;
   border: none;
   border-radius: 5px;
-  background: #fff;
+  background: #bbb2b2;
   cursor: pointer;
 }
 
 .info_box {
   width: 540px;
-  background: #fff;
+  background: #bbb2b2;
   border-radius: 5px;
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
@@ -185,7 +185,7 @@ body {
 
 section {
   padding: 25px 30px 20px 30px;
-  background: #fff;
+  background: #bbb2b2;
 }
 
 section .que_text {
