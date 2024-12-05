@@ -31,7 +31,7 @@ body {
   transition: all 0.3s ease;
 }
 .select-box {
-  background: #fff;
+  background: #bbb2b2;
   padding: 20px 25px 25px;
   border-radius: 5px;
   max-width: 400px;
@@ -64,7 +64,7 @@ body {
   border: none;
   background: #56baed;
   border-radius: 5px;
-  color: #fff;
+  color: black;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -106,7 +106,7 @@ body {
 .play-board .details {
   padding: 7px;
   border-radius: 5px;
-  background: #fff;
+  background: #bbb2b2;
 }
 .play-board .players {
   width: 100%;
@@ -117,7 +117,7 @@ body {
 .players span {
   position: relative;
   z-index: 2;
-  color: #56baed;
+  color: black;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 0;
@@ -134,7 +134,7 @@ body {
   color: #56baed;
 }
 .players span:first-child {
-  color: #fff;
+  color: black;
 }
 .players .slider {
   position: absolute;
@@ -150,10 +150,10 @@ body {
   left: 50%;
 }
 .players.active span:first-child {
-  color: #56baed;
+  color: black;
 }
 .players.active span:nth-child(2) {
-  color: #fff;
+  color: black;
 }
 .players.active .slider {
   left: 50%;
@@ -170,12 +170,12 @@ body {
   height: 90px;
   width: 90px;
   margin: 2px;
-  color: #56baed;
+  color: black;
   font-size: 40px;
   line-height: 80px;
   text-align: center;
   border-radius: 5px;
-  background: #fff;
+  background: #bbb2b2;
 }
 
 .result-box {
@@ -185,7 +185,7 @@ body {
   width: 100%;
   opacity: 0;
   text-align: center;
-  background: #fff;
+  background: #bbb2b2;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0.9);
 }
@@ -215,7 +215,7 @@ body {
   font-weight: 500;
   padding: 8px 20px;
   border: none;
-  background: #56baed;
+  background: black;
   border-radius: 5px;
   color: #fff;
   outline: none;
