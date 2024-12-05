@@ -28,7 +28,7 @@ body {
   width: 850px;
   gap: 70px;
   padding: 60px 40px;
-  background: #5b5858;
+  background: #bbb2b2;
   border-radius: 10px;
   align-items: flex-end;
   justify-content: space-between;
@@ -132,7 +132,7 @@ body {
   max-width: 420px;
   width: 100%;
   border-radius: 10px;
-  background: #424040;
+  background: #bbb2b2;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
