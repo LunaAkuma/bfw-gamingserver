@@ -259,4 +259,12 @@ const wordList = [
     word: "brilliant",
     hint: "Exceptionally clever, talented, or impressive.",
   },
+  {
+    word: "penis",
+    hint: "Exceptionally massive male body part.",
+  },
+  {
+    word: "cock",
+    hint: "A man's best friend is his massive...",
+  },
 ];
