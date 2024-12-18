@@ -1,3 +1,11 @@
+canvas {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  margin: -320px 0 0 -320px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -20,91 +28,6 @@ body {
   justify-content: center;
   min-height: 100vh;
   background: black;
-}
-#tetris {
-  width: 360px;
-  border: 1px solid black;
-  padding: 20px;
-}
-#canvas {
-  width: 200px;
-  height: 440px;
-  background-color: #000;
-  position: relative;
-  color: #fff;
-}
-#canvas h1 {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  font-size: 30px;
-  padding-top: 200px;
-}
-.piece {
-  border: 1px solid white;
-  position: absolute;
-}
-
-#start {
-  animation: blink 0.7s steps(2, start) infinite;
-  background: #e1ff5f;
-  border-radius: 2px;
-  color: #202020;
-  cursor: pointer;
-  font-size: 28px;
-}
-
-@keyframes blink {
-  to {
-    outline: #e1ff5f solid 1px;
-  }
-}
-
-.red {
-  color: #f00000;
-}
-
-.square {
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  border: 1px solid white;
-}
-.type0 {
-  background-color: #a000f0;
-}
-.type1 {
-  background-color: #00f0f0;
-}
-.type2 {
-  background-color: #f0a000;
-}
-.type3 {
-  background-color: #0000f0;
-}
-.type4 {
-  background-color: #00f000;
-}
-.type5 {
-  background-color: #f00000;
-}
-.type6 {
-  background-color: #f0f000;
-}
-#next_shape {
-  position: relative;
-  background-color: #000;
-  border: 1px solid white;
-  width: 110px;
-  height: 110px;
-}
-#info {
-  background-color: #000;
-  color: #fff;
-  float: right;
-  width: 110px;
-  height: 420px;
-  padding: 10px;
 }
 
 .back-button {
@@ -258,11 +181,85 @@ body {
   }
 }
 
+.forward-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.forward-button img {
+  height: 100%;
+  width: 100%;
+}
+
+.forward-button button {
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 60px;
+  width: 80px;
+  border: none;
+  outline: none;
+  color: white;
+  background: #111;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 25px;
+  font-family: "Barrio", system-ui;
+  opacity: 0.6;
+}
+.forward-button button:before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(5px);
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-size: 400%;
+  transition: opacity 0.3s ease-in-out;
+  animation: animate 20s linear infinite;
+}
+.forward-button button:hover:before {
+  opacity: 1;
+}
+.forward-button button:hover:active {
+  background: none;
+}
+.forward-button button:hover:active:before {
+  filter: blur(2px);
+}
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 .guestbook {
   position: absolute;
   bottom: 57px;
   scale: 10%;
-  left: 50%;
 }
 
 .guestbook img {

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>TETRIS</title>
-    <link rel="stylesheet" type="text/css" href="tetris.css" />
-    <script type="text/javascript" src="tetris.js" defer></script>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="tetris.css" />
+    <script src="tetris.js" defer></script>
   </head>
   <body>
     <div class="back-button">
@@ -17,21 +17,16 @@
           <img src="images/home.png" /></button
       ></a>
     </div>
+    <div class="forward-button">
+      <a href="/games/snake/snake.html"
+        ><button>
+          <img src="images/forth-arrow.png" /></button
+      ></a>
+    </div>
     <video muted loop id="backgroundVideo">
       <source src="/site/site videos/vid2.webm" />
     </video>
-    <div id="tetris">
-      <div id="info">
-        <div id="next_shape"></div>
-        <p id="level">Level: <span></span></p>
-        <p id="lines">Lines: <span></span></p>
-        <p id="score">Score: <span></span></p>
-        <p id="time">Time: <span></span></p>
-        <button id="start">Start</button>
-        <p class="red">Press the Esc button to pause<span></span></p>
-      </div>
-      <div id="canvas"></div>
-    </div>
+    <canvas></canvas>
     <div class="guestbook">
       <a
         href="https://www.amazon.de/Wedding-Polaroid-Hardcover-Guestbook-Hardbound/dp/B07Z44NR5H"

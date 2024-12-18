@@ -1,617 +1,530 @@
-(function () {
-  var isStart = false;
-  var tetris = {
-    board: [],
-    boardDiv: null,
-    canvas: null,
-    pSize: 20,
-    canvasHeight: 440,
-    canvasWidth: 200,
-    boardHeight: 0,
-    boardWidth: 0,
-    spawnX: 4,
-    spawnY: 1,
-    shapes: [
-      [
-        [-1, 1],
-        [0, 1],
-        [1, 1],
-        [0, 0], //TEE
-      ],
-      [
-        [-1, 0],
-        [0, 0],
-        [1, 0],
-        [2, 0], //line
-      ],
-      [
-        [-1, -1],
-        [-1, 0],
-        [0, 0],
-        [1, 0], //L EL
-      ],
-      [
-        [1, -1],
-        [-1, 0],
-        [0, 0],
-        [1, 0], //R EL
-      ],
-      [
-        [0, -1],
-        [1, -1],
-        [-1, 0],
-        [0, 0], // R ess
-      ],
-      [
-        [-1, -1],
-        [0, -1],
-        [0, 0],
-        [1, 0], //L ess
-      ],
-      [
-        [0, -1],
-        [1, -1],
-        [0, 0],
-        [1, 0], //square
-      ],
-    ],
-    tempShapes: null,
-    curShape: null,
-    curShapeIndex: null,
-    curX: 0,
-    curY: 0,
-    curSqs: [],
-    nextShape: null,
-    nextShapeDisplay: null,
-    nextShapeIndex: null,
-    sqs: [],
-    score: 0,
-    scoreDisplay: null,
-    level: 1,
-    levelDisplay: null,
-    numLevels: 10,
-    time: 0,
-    maxTime: 1000,
-    timeDisplay: null,
-    isActive: 0,
-    curComplete: false,
-    timer: null,
-    sTimer: null,
-    speed: 700,
-    lines: 0,
+"use strict";
+var canvas = document.querySelector("canvas");
+canvas.width = 640;
+canvas.height = 640;
 
-    init: function () {
-      isStart = true;
-      this.canvas = document.getElementById("canvas");
-      this.initBoard();
-      this.initInfo();
-      this.initLevelScores();
-      this.initShapes();
-      this.bindKeyEvents();
-      this.play();
-    },
-    initBoard: function () {
-      this.boardHeight = this.canvasHeight / this.pSize;
-      this.boardWidth = this.canvasWidth / this.pSize;
-      var s = this.boardHeight * this.boardWidth;
-      for (var i = 0; i < s; i++) {
-        this.board.push(0);
-      }
-      //this.boardDiv = document.getElementById('board); //for debugging
-    },
-    initInfo: function () {
-      this.nextShapeDisplay = document.getElementById("next_shape");
-      this.levelDisplay = document
-        .getElementById("level")
-        .getElementsByTagName("span")[0];
-      this.timeDisplay = document
-        .getElementById("time")
-        .getElementsByTagName("span")[0];
-      this.scoreDisplay = document
-        .getElementById("score")
-        .getElementsByTagName("span")[0];
-      this.linesDisplay = document
-        .getElementById("lines")
-        .getElementsByTagName("span")[0];
-      this.setInfo("time");
-      this.setInfo("score");
-      this.setInfo("level");
-      this.setInfo("lines");
-    },
-    initShapes: function () {
-      this.curSqs = [];
-      this.curComplete = false;
-      this.shiftTempShapes();
-      this.curShapeIndex = this.tempShapes[0];
-      this.curShape = this.shapes[this.curShapeIndex];
-      this.initNextShape();
-      this.setCurCoords(this.spawnX, this.spawnY);
-      this.drawShape(this.curX, this.curY, this.curShape);
-    },
-    initNextShape: function () {
-      if (typeof this.tempShapes[1] === "undefined") {
-        this.initTempShapes();
-      }
-      try {
-        this.nextShapeIndex = this.tempShapes[1];
-        this.nextShape = this.shapes[this.nextShapeIndex];
-        this.drawNextShape();
-      } catch (e) {
-        throw new Error("Could not create next shape. " + e);
-      }
-    },
-    initTempShapes: function () {
-      this.tempShapes = [];
-      for (var i = 0; i < this.shapes.length; i++) {
-        this.tempShapes.push(i);
-      }
-      var k = this.tempShapes.length;
-      while (--k) {
-        //Fisher Yates Shuffle
-        var j = Math.floor(Math.random() * (k + 1));
-        var tempk = this.tempShapes[k];
-        var tempj = this.tempShapes[j];
-        this.tempShapes[k] = tempj;
-        this.tempShapes[j] = tempk;
-      }
-    },
-    shiftTempShapes: function () {
-      try {
-        if (
-          typeof this.tempShapes === "undefined" ||
-          this.tempShapes === null
-        ) {
-          this.initTempShapes();
-        } else {
-          this.tempShapes.shift();
-        }
-      } catch (e) {
-        throw new Error("Could not shift or init tempShapes: " + e);
-      }
-    },
-    initTimer: function () {
-      var me = this;
-      var tLoop = function () {
-        me.incTime();
-        me.timer = setTimeout(tLoop, 2000);
-      };
-      this.timer = setTimeout(tLoop, 2000);
-    },
-    initLevelScores: function () {
-      var c = 1;
-      for (var i = 1; i <= this.numLevels; i++) {
-        this["level" + i] = [c * 1000, 40 * i, 5 * i]; //for nxt level, row score, p sore,
-        c = c + c;
-      }
-    },
-    setInfo: function (el) {
-      this[el + "Display"].innerHTML = this[el];
-    },
-    drawNextShape: function () {
-      var ns = [];
-      for (var i = 0; i < this.nextShape.length; i++) {
-        ns[i] = this.createSquare(
-          this.nextShape[i][0] + 2,
-          this.nextShape[i][1] + 2,
-          this.nextShapeIndex
-        );
-      }
-      this.nextShapeDisplay.innerHTML = "";
-      for (var k = 0; k < ns.length; k++) {
-        this.nextShapeDisplay.appendChild(ns[k]);
-      }
-    },
-    drawShape: function (x, y, p) {
-      for (var i = 0; i < p.length; i++) {
-        var newX = p[i][0] + x;
-        var newY = p[i][1] + y;
-        this.curSqs[i] = this.createSquare(newX, newY, this.curShapeIndex);
-      }
-      for (var k = 0; k < this.curSqs.length; k++) {
-        this.canvas.appendChild(this.curSqs[k]);
-      }
-    },
-    createSquare: function (x, y, type) {
-      var el = document.createElement("div");
-      el.className = "square type" + type;
-      el.style.left = x * this.pSize + "px";
-      el.style.top = y * this.pSize + "px";
-      return el;
-    },
-    removeCur: function () {
-      var me = this;
-      this.curSqs.eachdo(function () {
-        me.canvas.removeChild(this);
-      });
-      this.curSqs = [];
-    },
-    setCurCoords: function (x, y) {
-      this.curX = x;
-      this.curY = y;
-    },
-    bindKeyEvents: function () {
-      var me = this;
-      var event = "keypress";
-      if (this.isSafari() || this.isIE()) {
-        event = "keydown";
-      }
-      var cb = function (e) {
-        me.handleKey(e);
-      };
-      if (window.addEventListener) {
-        document.addEventListener(event, cb, false);
-      } else {
-        document.attachEvent("on" + event, cb);
-      }
-    },
-    handleKey: function (e) {
-      var c = this.whichKey(e);
-      var dir = "";
-      switch (c) {
-        case 37:
-          this.move("L");
-          break;
-        case 38:
-          this.move("RT");
-          break;
-        case 39:
-          this.move("R");
-          break;
-        case 40:
-          this.move("D");
-          break;
-        case 27: //esc: pause
-          this.togglePause();
-          break;
-        default:
-          break;
-      }
-    },
-    whichKey: function (e) {
-      var c;
-      if (window.event) {
-        c = window.event.keyCode;
-      } else if (e) {
-        c = e.keyCode;
-      }
-      return c;
-    },
-    incTime: function () {
-      this.time++;
-      this.setInfo("time");
-    },
-    incScore: function (amount) {
-      this.score = this.score + amount;
-      this.setInfo("score");
-    },
-    incLevel: function () {
-      this.level++;
-      this.speed = this.speed - 75;
-      this.setInfo("level");
-    },
-    incLines: function (num) {
-      this.lines += num;
-      this.setInfo("lines");
-    },
-    calcScore: function (args) {
-      var lines = args.lines || 0;
-      var shape = args.shape || false;
-      var speed = args.speed || 0;
-      var score = 0;
+var g = canvas.getContext("2d");
 
-      if (lines > 0) {
-        score += lines * this["level" + this.level][1];
-        this.incLines(lines);
-      }
-      if (shape === true) {
-        score += shape * this["level" + this.level][2];
-      }
-      /*if (speed > 0){ score += speed * this["level" +this .level[3]];}*/
-      this.incScore(score);
-    },
-    checkScore: function () {
-      if (this.score >= this["level" + this.level][0]) {
-        this.incLevel();
-      }
-    },
-    gameOver: function () {
-      this.clearTimers();
-      isStart = false;
-      this.canvas.innerHTML = "<h1>GAME OVER</h1>";
-    },
-    play: function () {
-      var me = this;
-      if (this.timer === null) {
-        this.initTimer();
-      }
-      var gameLoop = function () {
-        me.move("D");
-        if (me.curComplete) {
-          me.markBoardShape(me.curX, me.curY, me.curShape);
-          me.curSqs.eachdo(function () {
-            me.sqs.push(this);
-          });
-          me.calcScore({ shape: true });
-          me.checkRows();
-          me.checkScore();
-          me.initShapes();
-          me.play();
-        } else {
-          me.pTimer = setTimeout(gameLoop, me.speed);
-        }
-      };
-      this.pTimer = setTimeout(gameLoop, me.speed);
-      this.isActive = 1;
-    },
-    togglePause: function () {
-      if (this.isActive === 1) {
-        this.clearTimers();
-        this.isActive = 0;
-      } else {
-        this.play();
-      }
-    },
-    clearTimers: function () {
-      clearTimeout(this.timer);
-      clearTimeout(this.pTimer);
-      this.timer = null;
-      this.pTimer = null;
-    },
-    move: function (dir) {
-      var s = "";
-      var me = this;
-      var tempX = this.curX;
-      var tempY = this.curY;
-      switch (dir) {
-        case "L":
-          s = "left";
-          tempX -= 1;
-          break;
-        case "R":
-          s = "left";
-          tempX += 1;
-          break;
-        case "D":
-          s = "top";
-          tempY += 1;
-          break;
-        case "RT":
-          this.rotate();
-          return true;
-          break;
-        default:
-          throw new Error("wtf");
-          break;
-      }
-      if (this.checkMove(tempX, tempY, this.curShape)) {
-        this.curSqs.eachdo(function (i) {
-          var l = parseInt(this.style[s], 10);
-          dir === "L" ? (l -= me.pSize) : (l += me.pSize);
-          this.style[s] = l + "px";
-        });
-        this.curX = tempX;
-        this.curY = tempY;
-      } else if (dir === "D") {
-        if (this.curY === 1 || this.time === this.maxTime) {
-          this.gameOver();
-          return false;
-        }
-        this.curComplete = true;
-      }
-    },
-    rotate: function () {
-      if (this.curShapeIndex !== 6) {
-        //square
-        var temp = [];
-        this.curShape.eachdo(function () {
-          temp.push([this[1] * -1, this[0]]);
-        });
-        if (this.checkMove(this.curX, this.curY, temp)) {
-          this.curShape = temp;
-          this.removeCur();
-          this.drawShape(this.curX, this.curY, this.curShape);
-        } else {
-          throw new Error("Could not rotate!");
-        }
-      }
-    },
-    checkMove: function (x, y, p) {
-      if (this.isOB(x, y, p) || this.isCollision(x, y, p)) {
-        return false;
-      }
-      return true;
-    },
-    isCollision: function (x, y, p) {
-      var me = this;
-      var bool = false;
-      p.eachdo(function () {
-        var newX = this[0] + x;
-        var newY = this[1] + y;
-        if (me.boardPos(newX, newY) === 1) {
-          bool = true;
-        }
-      });
-      return bool;
-    },
-    isOB: function (x, y, p) {
-      var w = this.boardWidth - 1;
-      var h = this.boardHeight - 1;
-      var bool = false;
-      p.eachdo(function () {
-        var newX = this[0] + x;
-        var newY = this[1] + y;
-        if (newX < 0 || newX > w || newY < 0 || newY > h) {
-          bool = true;
-        }
-      });
-      return bool;
-    },
-    getRowState: function (y) {
-      var c = 0;
-      for (var x = 0; x < this.boardWidth; x++) {
-        if (this.boardPos(x, y) === 1) {
-          c = c + 1;
-        }
-      }
-      if (c === 0) {
-        return "E";
-      }
-      if (c === this.boardWidth) {
-        return "F";
-      }
-      return "U";
-    },
-    checkRows: function () {
-      var me = this;
-      var start = this.boardHeight;
-      this.curShape.eachdo(function () {
-        var n = this[1] + me.curY;
-        console.log(n);
-        if (n < start) {
-          start = n;
-        }
-      });
-      console.log(start);
+var right = { x: 1, y: 0 };
+var down = { x: 0, y: 1 };
+var left = { x: -1, y: 0 };
 
-      var c = 0;
-      var stopCheck = false;
-      for (var y = this.boardHeight - 1; y >= 0; y--) {
-        switch (this.getRowState(y)) {
-          case "F":
-            this.removeRow(y);
-            c++;
-            break;
-          case "E":
-            if (c === 0) {
-              stopCheck = true;
-            }
-            break;
-          case "U":
-            if (c > 0) {
-              this.shiftRow(y, c);
-            }
-            break;
-          default:
-            break;
-        }
-        if (stopCheck === true) {
-          break;
-        }
-      }
-      if (c > 0) {
-        this.calcScore({ lines: c });
-      }
-    },
-    shiftRow: function (y, amount) {
-      var me = this;
-      for (var x = 0; x < this.boardWidth; x++) {
-        this.sqs.eachdo(function () {
-          if (me.isAt(x, y, this)) {
-            me.setBlock(x, y + amount, this);
+var EMPTY = -1;
+var BORDER = -2;
+
+var fallingShape;
+var nextShape;
+var dim = 640;
+var nRows = 18;
+var nCols = 12;
+var blockSize = 30;
+var topMargin = 50;
+var leftMargin = 20;
+var scoreX = 400;
+var scoreY = 330;
+var titleX = 130;
+var titleY = 160;
+var clickX = 120;
+var clickY = 400;
+var previewCenterX = 467;
+var previewCenterY = 97;
+var mainFont = "bold 48px monospace";
+var smallFont = "bold 18px monospace";
+var colors = [
+  "green",
+  "red",
+  "blue",
+  "purple",
+  "orange",
+  "blueviolet",
+  "magenta",
+];
+var gridRect = { x: 46, y: 47, w: 308, h: 517 };
+var previewRect = { x: 387, y: 47, w: 200, h: 200 };
+var titleRect = { x: 100, y: 95, w: 252, h: 100 };
+var clickRect = { x: 50, y: 375, w: 252, h: 40 };
+var outerRect = { x: 5, y: 5, w: 630, h: 630 };
+var squareBorder = "white";
+var titlebgColor = "white";
+var textColor = "black";
+var bgColor = "#bfbfbf";
+var gridColor = "#bbb2b2";
+var gridBorderColor = "black";
+var largeStroke = 5;
+var smallStroke = 2;
+
+// position of falling shape
+var fallingShapeRow;
+var fallingShapeCol;
+
+var keyDown = false;
+var fastDown = false;
+
+var grid = [];
+var scoreboard = new Scoreboard();
+
+addEventListener("keydown", function (event) {
+  if (!keyDown) {
+    keyDown = true;
+
+    if (scoreboard.isGameOver()) return;
+
+    switch (event.key) {
+      case "w":
+      case "ArrowUp":
+        if (canRotate(fallingShape)) rotate(fallingShape);
+        break;
+
+      case "a":
+      case "ArrowLeft":
+        if (canMove(fallingShape, left)) move(left);
+        break;
+
+      case "d":
+      case "ArrowRight":
+        if (canMove(fallingShape, right)) move(right);
+        break;
+
+      case "s":
+      case "ArrowDown":
+        if (!fastDown) {
+          fastDown = true;
+          while (canMove(fallingShape, down)) {
+            move(down);
+            draw();
           }
-        });
-      }
-      me.emptyBoardRow(y);
-    },
-    emptyBoardRow: function (y) {
-      for (var x = 0; x < this.boardWidth; x++) {
-        this.markBoardAt(x, y, 0);
-      }
-    },
-    removeRow: function (y) {
-      for (var x = 0; x < this.boardWidth; x++) {
-        this.removeBlock(x, y);
-      }
-    },
-    removeBlock: function (x, y) {
-      var me = this;
-      this.markBoardAt(x, y, 0);
-      this.sqs.eachdo(function (i) {
-        if (me.getPos(this)[0] === x && me.getPos(this)[1] === y) {
-          me.canvas.removeChild(this);
-          me.sqs.splice(i, 1);
+          shapeHasLanded();
         }
-      });
-    },
-    setBlock: function (x, y, block) {
-      this.markBoardAt(x, y, 1);
-      var newX = x * this.pSize;
-      var newY = y * this.pSize;
-      block.style.left = newX + "px";
-      block.style.top = newY + "px";
-    },
-    isAt: function (x, y, block) {
-      if (this.getPos(block)[0] === x && this.getPos(block)[1] === y) {
-        return true;
-      }
-      return false;
-    },
-    getPos: function (block) {
-      var p = [];
-      p.push(parseInt(block.style.left, 10) / this.pSize);
-      p.push(parseInt(block.style.top, 10) / this.pSize);
-      return p;
-    },
-    getBoardIdx: function (x, y) {
-      return x + y * this.boardWidth;
-    },
-    boardPos: function (x, y) {
-      return this.board[x + y * this.boardWidth];
-    },
-    markBoardAt: function (x, y, val) {
-      this.board[this.getBoardIdx(x, y)] = val;
-    },
-    markBoardShape: function (x, y, p) {
-      var me = this;
-      p.eachdo(function (i) {
-        var newX = p[i][0] + x;
-        var newY = p[i][1] + y;
-        me.markBoardAt(newX, newY, 1);
-      });
-    },
-    isIE: function () {
-      return this.bTest(/IE/);
-    },
-    isFirefox: function () {
-      return this.bTest(/Firefox/);
-    },
-    isSafari: function () {
-      return this.bTest(/Safari/);
-    },
-    bTest: function (rgx) {
-      return rgx.test(navigator.userAgent);
-    },
-  };
-  const btn = document.querySelector("#start");
-  btn.addEventListener("click", function () {
-    btn.style.display = "none";
-    if (!isStart) {
-      tetris.init();
     }
-  });
-})();
+    draw();
+  }
+});
 
-if (!Array.prototype.eachdo) {
-  Array.prototype.eachdo = function (fn) {
-    for (var i = 0; i < this.length; i++) {
-      fn.call(this[i], i);
+addEventListener("click", function () {
+  startNewGame();
+});
+
+addEventListener("keyup", function () {
+  keyDown = false;
+  fastDown = false;
+});
+
+function canRotate(s) {
+  if (s === Shapes.Square) return false;
+
+  var pos = new Array(4);
+  for (var i = 0; i < pos.length; i++) {
+    pos[i] = s.pos[i].slice();
+  }
+
+  pos.forEach(function (row) {
+    var tmp = row[0];
+    row[0] = row[1];
+    row[1] = -tmp;
+  });
+
+  return pos.every(function (p) {
+    var newCol = fallingShapeCol + p[0];
+    var newRow = fallingShapeRow + p[1];
+    return grid[newRow][newCol] === EMPTY;
+  });
+}
+
+function rotate(s) {
+  if (s === Shapes.Square) return;
+
+  s.pos.forEach(function (row) {
+    var tmp = row[0];
+    row[0] = row[1];
+    row[1] = -tmp;
+  });
+}
+
+function move(dir) {
+  fallingShapeRow += dir.y;
+  fallingShapeCol += dir.x;
+}
+
+function canMove(s, dir) {
+  return s.pos.every(function (p) {
+    var newCol = fallingShapeCol + dir.x + p[0];
+    var newRow = fallingShapeRow + dir.y + p[1];
+    return grid[newRow][newCol] === EMPTY;
+  });
+}
+
+function shapeHasLanded() {
+  addShape(fallingShape);
+  if (fallingShapeRow < 2) {
+    scoreboard.setGameOver();
+    scoreboard.setTopscore();
+  } else {
+    scoreboard.addLines(removeLines());
+  }
+  selectShape();
+}
+
+function removeLines() {
+  var count = 0;
+  for (var r = 0; r < nRows - 1; r++) {
+    for (var c = 1; c < nCols - 1; c++) {
+      if (grid[r][c] === EMPTY) break;
+      if (c === nCols - 2) {
+        count++;
+        removeLine(r);
+      }
+    }
+  }
+  return count;
+}
+
+function removeLine(line) {
+  for (var c = 0; c < nCols; c++) grid[line][c] = EMPTY;
+
+  for (var c = 0; c < nCols; c++) {
+    for (var r = line; r > 0; r--) grid[r][c] = grid[r - 1][c];
+  }
+}
+
+function addShape(s) {
+  s.pos.forEach(function (p) {
+    grid[fallingShapeRow + p[1]][fallingShapeCol + p[0]] = s.ordinal;
+  });
+}
+
+function Shape(shape, o) {
+  this.shape = shape;
+  this.pos = this.reset();
+  this.ordinal = o;
+}
+
+var Shapes = {
+  ZShape: [
+    [0, -1],
+    [0, 0],
+    [-1, 0],
+    [-1, 1],
+  ],
+  SShape: [
+    [0, -1],
+    [0, 0],
+    [1, 0],
+    [1, 1],
+  ],
+  IShape: [
+    [0, -1],
+    [0, 0],
+    [0, 1],
+    [0, 2],
+  ],
+  TShape: [
+    [-1, 0],
+    [0, 0],
+    [1, 0],
+    [0, 1],
+  ],
+  Square: [
+    [0, 0],
+    [1, 0],
+    [0, 1],
+    [1, 1],
+  ],
+  LShape: [
+    [-1, -1],
+    [0, -1],
+    [0, 0],
+    [0, 1],
+  ],
+  JShape: [
+    [1, -1],
+    [0, -1],
+    [0, 0],
+    [0, 1],
+  ],
+};
+
+function getRandomShape() {
+  var keys = Object.keys(Shapes);
+  var ord = Math.floor(Math.random() * keys.length);
+  var shape = Shapes[keys[ord]];
+  return new Shape(shape, ord);
+}
+
+Shape.prototype.reset = function () {
+  this.pos = new Array(4);
+  for (var i = 0; i < this.pos.length; i++) {
+    this.pos[i] = this.shape[i].slice();
+  }
+  return this.pos;
+};
+
+function selectShape() {
+  fallingShapeRow = 1;
+  fallingShapeCol = 5;
+  fallingShape = nextShape;
+  nextShape = getRandomShape();
+  if (fallingShape != null) {
+    fallingShape.reset();
+  }
+}
+
+function Scoreboard() {
+  this.MAXLEVEL = 9;
+
+  var level = 0;
+  var lines = 0;
+  var score = 0;
+  var topscore = 0;
+  var gameOver = true;
+
+  this.reset = function () {
+    this.setTopscore();
+    level = lines = score = 0;
+    gameOver = false;
+  };
+
+  this.setGameOver = function () {
+    gameOver = true;
+  };
+
+  this.isGameOver = function () {
+    return gameOver;
+  };
+
+  this.setTopscore = function () {
+    if (score > topscore) {
+      topscore = score;
     }
   };
-}
-if (!Array.prototype.remDup) {
-  Array.prototype.remDup = function () {
-    var temp = [];
-    for (var i = 0; i < this.length; i++) {
-      var bool = true;
-      for (var j = i + 1; j < this.length; j++) {
-        if (this[i] === this[j]) {
-          bool = false;
-        }
-      }
-      if (bool === true) {
-        temp.push(this[i]);
-      }
+
+  this.getTopscore = function () {
+    return topscore;
+  };
+
+  this.getSpeed = function () {
+    switch (level) {
+      case 0:
+        return 700;
+      case 1:
+        return 600;
+      case 2:
+        return 500;
+      case 3:
+        return 400;
+      case 4:
+        return 350;
+      case 5:
+        return 300;
+      case 6:
+        return 250;
+      case 7:
+        return 200;
+      case 8:
+        return 150;
+      case 9:
+        return 100;
+      default:
+        return 100;
     }
-    return temp;
+  };
+
+  this.addScore = function (sc) {
+    score += sc;
+  };
+
+  this.addLines = function (line) {
+    switch (line) {
+      case 1:
+        this.addScore(10);
+        break;
+      case 2:
+        this.addScore(20);
+        break;
+      case 3:
+        this.addScore(30);
+        break;
+      case 4:
+        this.addScore(40);
+        break;
+      default:
+        return;
+    }
+
+    lines += line;
+    if (lines > 10) {
+      this.addLevel();
+    }
+  };
+
+  this.addLevel = function () {
+    lines %= 10;
+    if (level < this.MAXLEVEL) {
+      level++;
+    }
+  };
+
+  this.getLevel = function () {
+    return level;
+  };
+
+  this.getLines = function () {
+    return lines;
+  };
+
+  this.getScore = function () {
+    return score;
   };
 }
+
+function draw() {
+  g.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawUI();
+
+  if (scoreboard.isGameOver()) {
+    drawStartScreen();
+  } else {
+    drawFallingShape();
+  }
+}
+
+function drawStartScreen() {
+  g.font = mainFont;
+
+  fillRect(titleRect, titlebgColor);
+  fillRect(clickRect, titlebgColor);
+
+  g.fillStyle = textColor;
+  g.fillText("Tetris", titleX, titleY);
+
+  g.font = smallFont;
+  g.fillText("click to start", clickX, clickY);
+}
+
+function fillRect(r, color) {
+  g.fillStyle = color;
+  g.fillRect(r.x, r.y, r.w, r.h);
+}
+
+function drawRect(r, color) {
+  g.strokeStyle = color;
+  g.strokeRect(r.x, r.y, r.w, r.h);
+}
+
+function drawSquare(colorIndex, r, c) {
+  var bs = blockSize;
+  g.fillStyle = colors[colorIndex];
+  g.fillRect(leftMargin + c * bs, topMargin + r * bs, bs, bs);
+
+  g.lineWidth = smallStroke;
+  g.strokeStyle = squareBorder;
+  g.strokeRect(leftMargin + c * bs, topMargin + r * bs, bs, bs);
+}
+
+function drawUI() {
+  // background
+  fillRect(outerRect, bgColor);
+  fillRect(gridRect, gridColor);
+
+  // the blocks dropped in the grid
+  for (var r = 0; r < nRows; r++) {
+    for (var c = 0; c < nCols; c++) {
+      var idx = grid[r][c];
+      if (idx > EMPTY) drawSquare(idx, r, c);
+    }
+  }
+
+  // the borders of grid and preview panel
+  g.lineWidth = largeStroke;
+  drawRect(gridRect, gridBorderColor);
+  drawRect(previewRect, gridBorderColor);
+  drawRect(outerRect, gridBorderColor);
+
+  // scoreboard
+  g.fillStyle = textColor;
+  g.font = smallFont;
+  g.fillText("hiscore    " + scoreboard.getTopscore(), scoreX, scoreY);
+  g.fillText("level      " + scoreboard.getLevel(), scoreX, scoreY + 30);
+  g.fillText("lines      " + scoreboard.getLines(), scoreX, scoreY + 60);
+  g.fillText("score      " + scoreboard.getScore(), scoreX, scoreY + 90);
+
+  // preview
+  var minX = 5,
+    minY = 5,
+    maxX = 0,
+    maxY = 0;
+  nextShape.pos.forEach(function (p) {
+    minX = Math.min(minX, p[0]);
+    minY = Math.min(minY, p[1]);
+    maxX = Math.max(maxX, p[0]);
+    maxY = Math.max(maxY, p[1]);
+  });
+  var cx = previewCenterX - ((minX + maxX + 1) / 2.0) * blockSize;
+  var cy = previewCenterY - ((minY + maxY + 1) / 2.0) * blockSize;
+
+  g.translate(cx, cy);
+  nextShape.shape.forEach(function (p) {
+    drawSquare(nextShape.ordinal, p[1], p[0]);
+  });
+  g.translate(-cx, -cy);
+}
+
+function drawFallingShape() {
+  var idx = fallingShape.ordinal;
+  fallingShape.pos.forEach(function (p) {
+    drawSquare(idx, fallingShapeRow + p[1], fallingShapeCol + p[0]);
+  });
+}
+
+function animate(lastFrameTime) {
+  var requestId = requestAnimationFrame(function () {
+    animate(lastFrameTime);
+  });
+
+  var time = new Date().getTime();
+  var delay = scoreboard.getSpeed();
+
+  if (lastFrameTime + delay < time) {
+    if (!scoreboard.isGameOver()) {
+      if (canMove(fallingShape, down)) {
+        move(down);
+      } else {
+        shapeHasLanded();
+      }
+      draw();
+      lastFrameTime = time;
+    } else {
+      cancelAnimationFrame(requestId);
+    }
+  }
+}
+
+function startNewGame() {
+  initGrid();
+  selectShape();
+  scoreboard.reset();
+  animate(-1);
+}
+
+function initGrid() {
+  function fill(arr, value) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = value;
+    }
+  }
+  for (var r = 0; r < nRows; r++) {
+    grid[r] = new Array(nCols);
+    fill(grid[r], EMPTY);
+    for (var c = 0; c < nCols; c++) {
+      if (c === 0 || c === nCols - 1 || r === nRows - 1) grid[r][c] = BORDER;
+    }
+  }
+}
+
+function init() {
+  initGrid();
+  selectShape();
+  draw();
+}
+
+init();
