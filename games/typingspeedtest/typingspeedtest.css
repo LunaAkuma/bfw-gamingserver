@@ -417,3 +417,15 @@ li:not(:first-child) span {
     background-position: 0 0;
   }
 }
+
+.guestbook {
+  position: absolute;
+  bottom: 57px;
+  scale: 10%;
+  left: 50%;
+}
+
+.guestbook img {
+  position: fixed;
+  transform: translateX(-50%);
+}

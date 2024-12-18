@@ -333,3 +333,14 @@ body {
     background-position: 0 0;
   }
 }
+
+.guestbook {
+  position: absolute;
+  bottom: 57px;
+  scale: 10%;
+}
+
+.guestbook img {
+  position: fixed;
+  transform: translateX(-50%);
+}
