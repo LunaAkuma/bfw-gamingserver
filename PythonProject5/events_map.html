@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cb736bf95e824bcf07e6c55f9116f423 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_cb736bf95e824bcf07e6c55f9116f423" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cb736bf95e824bcf07e6c55f9116f423 = L.map(
+                "map_cb736bf95e824bcf07e6c55f9116f423",
+                {
+                    center: [50.9375, 6.9603],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e8dc18bcda0b307d63d63faa854b5cde = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e8dc18bcda0b307d63d63faa854b5cde.addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+            var marker_4132fdc1257acb85b6a5964e5ab8dfa2 = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_0dc91955f05022da1c92206802af5a84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_658c43b57adaea149bea676baf0eb612 = $(`<div id="html_658c43b57adaea149bea676baf0eb612" style="width: 100.0%; height: 100.0%;">fi = altshift5 w/ Ross From Friends & Nonchalance<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-altshift5-w-ross-from-friends-nonchalance-tickets-1111628573989?aff=ebdssbcitybrowsenightlife' target='_blank'>Link</a></div>`)[0];
+                popup_0dc91955f05022da1c92206802af5a84.setContent(html_658c43b57adaea149bea676baf0eb612);
+            
+        
+
+        marker_4132fdc1257acb85b6a5964e5ab8dfa2.bindPopup(popup_0dc91955f05022da1c92206802af5a84)
+        ;
+
+        
+    
+    
+            var marker_e69983a61ab4b82fee6dbec01b467308 = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_02189a8e2372636ed419d6918ae16e8e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f5f65a0e9cd7ae3f103b452063cd7d2 = $(`<div id="html_9f5f65a0e9cd7ae3f103b452063cd7d2" style="width: 100.0%; height: 100.0%;">fi = altshift5 w/ Ross From Friends & Nonchalance<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-altshift5-w-ross-from-friends-nonchalance-tickets-1111628573989?aff=ebdssbcitybrowsenightlife' target='_blank'>Link</a></div>`)[0];
+                popup_02189a8e2372636ed419d6918ae16e8e.setContent(html_9f5f65a0e9cd7ae3f103b452063cd7d2);
+            
+        
+
+        marker_e69983a61ab4b82fee6dbec01b467308.bindPopup(popup_02189a8e2372636ed419d6918ae16e8e)
+        ;
+
+        
+    
+    
+            var marker_fd0ddb76254197fdcff9bd0b5f618776 = L.marker(
+                [50.95987555, 7.005022831321961],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_d75e250d73408013155631ad74a7f362 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ceecda8ddcaf4742fb0286a4cdd9015 = $(`<div id="html_7ceecda8ddcaf4742fb0286a4cdd9015" style="width: 100.0%; height: 100.0%;">Bademäntelparty 01.03.25 Stadthalle<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/bademantelparty-010325-stadthalle-tickets-1109103411159?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_d75e250d73408013155631ad74a7f362.setContent(html_7ceecda8ddcaf4742fb0286a4cdd9015);
+            
+        
+
+        marker_fd0ddb76254197fdcff9bd0b5f618776.bindPopup(popup_d75e250d73408013155631ad74a7f362)
+        ;
+
+        
+    
+    
+            var marker_56d10b7bad8e676d936e6660c7c9a0ef = L.marker(
+                [50.95987555, 7.005022831321961],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_9db6837123ab7fadf8e02b37b2306948 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f0045694bcce8a0160cad694f0c323cf = $(`<div id="html_f0045694bcce8a0160cad694f0c323cf" style="width: 100.0%; height: 100.0%;">Bademäntelparty 01.03.25 Stadthalle<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/bademantelparty-010325-stadthalle-tickets-1109103411159?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_9db6837123ab7fadf8e02b37b2306948.setContent(html_f0045694bcce8a0160cad694f0c323cf);
+            
+        
+
+        marker_56d10b7bad8e676d936e6660c7c9a0ef.bindPopup(popup_9db6837123ab7fadf8e02b37b2306948)
+        ;
+
+        
+    
+    
+            var marker_c244d1b5cc595fd22dda28f970f553b3 = L.marker(
+                [50.9520962, 6.9542983],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_053ef22bb2c34b57c8b2c7df5de8c44e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29bbae15c20d47a6aa877d8801662021 = $(`<div id="html_29bbae15c20d47a6aa877d8801662021" style="width: 100.0%; height: 100.0%;">Workshop für Eltern: Raus aus dem Drohen und Strafen - Rein ins Miteinander<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/workshop-fur-eltern-raus-aus-dem-drohen-und-strafen-rein-ins-miteinander-tickets-1024373537827?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_053ef22bb2c34b57c8b2c7df5de8c44e.setContent(html_29bbae15c20d47a6aa877d8801662021);
+            
+        
+
+        marker_c244d1b5cc595fd22dda28f970f553b3.bindPopup(popup_053ef22bb2c34b57c8b2c7df5de8c44e)
+        ;
+
+        
+    
+    
+            var marker_fde99afcc256ce5b5acae998a67e7412 = L.marker(
+                [50.9185974, 6.9605577],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_8149cf871ff00ea10c57f972ed1d409e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_45a0fdfeb8afb75ca14dda24357f057c = $(`<div id="html_45a0fdfeb8afb75ca14dda24357f057c" style="width: 100.0%; height: 100.0%;">Stand Up Sunday | open mic night in English<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/stand-up-sunday-open-mic-night-in-english-tickets-727518355987?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_8149cf871ff00ea10c57f972ed1d409e.setContent(html_45a0fdfeb8afb75ca14dda24357f057c);
+            
+        
+
+        marker_fde99afcc256ce5b5acae998a67e7412.bindPopup(popup_8149cf871ff00ea10c57f972ed1d409e)
+        ;
+
+        
+    
+    
+            var marker_600507c1bea7ae3c4975d59fdbd4edba = L.marker(
+                [50.9408528, 6.9442744],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_3c09ff0c572582790759af0ee41bc31b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ec033c64be4feaee5ab14dc9cef68b54 = $(`<div id="html_ec033c64be4feaee5ab14dc9cef68b54" style="width: 100.0%; height: 100.0%;">Burlesque Dinner Show mit Nita Bon Air<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/burlesque-dinner-show-mit-nita-bon-air-tickets-1097068815359?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_3c09ff0c572582790759af0ee41bc31b.setContent(html_ec033c64be4feaee5ab14dc9cef68b54);
+            
+        
+
+        marker_600507c1bea7ae3c4975d59fdbd4edba.bindPopup(popup_3c09ff0c572582790759af0ee41bc31b)
+        ;
+
+        
+    
+    
+            var marker_a149c39b98ca3acf1a8e31143c1afb90 = L.marker(
+                [50.9520962, 6.9542983],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_3dd6c2bcbf774cef8bf1f1b51b92a8c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e42ac234c5f4cd58772a9908890b354 = $(`<div id="html_2e42ac234c5f4cd58772a9908890b354" style="width: 100.0%; height: 100.0%;">Workshop für Eltern: Raus aus dem Drohen und Strafen - Rein ins Miteinander<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/workshop-fur-eltern-raus-aus-dem-drohen-und-strafen-rein-ins-miteinander-tickets-1024373537827?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_3dd6c2bcbf774cef8bf1f1b51b92a8c1.setContent(html_2e42ac234c5f4cd58772a9908890b354);
+            
+        
+
+        marker_a149c39b98ca3acf1a8e31143c1afb90.bindPopup(popup_3dd6c2bcbf774cef8bf1f1b51b92a8c1)
+        ;
+
+        
+    
+    
+            var marker_4d83b18482d01f3fc91b271d85811032 = L.marker(
+                [50.9185974, 6.9605577],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_af8ffc7facfe4aa24bf9dd665c5727f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0ac33039a335f72d7ea1e1199c96d96 = $(`<div id="html_c0ac33039a335f72d7ea1e1199c96d96" style="width: 100.0%; height: 100.0%;">Stand Up Sunday | open mic night in English<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/stand-up-sunday-open-mic-night-in-english-tickets-727518355987?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_af8ffc7facfe4aa24bf9dd665c5727f3.setContent(html_c0ac33039a335f72d7ea1e1199c96d96);
+            
+        
+
+        marker_4d83b18482d01f3fc91b271d85811032.bindPopup(popup_af8ffc7facfe4aa24bf9dd665c5727f3)
+        ;
+
+        
+    
+    
+            var marker_ee0e318029523e9fb5264e3d6eee5c45 = L.marker(
+                [50.9408528, 6.9442744],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_b8f5531286b39aa55a4a03539edf1406 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21b178b6bd7d774e02c5b4feba41b725 = $(`<div id="html_21b178b6bd7d774e02c5b4feba41b725" style="width: 100.0%; height: 100.0%;">Burlesque Dinner Show mit Nita Bon Air<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/burlesque-dinner-show-mit-nita-bon-air-tickets-1097068815359?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_b8f5531286b39aa55a4a03539edf1406.setContent(html_21b178b6bd7d774e02c5b4feba41b725);
+            
+        
+
+        marker_ee0e318029523e9fb5264e3d6eee5c45.bindPopup(popup_b8f5531286b39aa55a4a03539edf1406)
+        ;
+
+        
+    
+    
+            var marker_09edcc8ec9d807d163517ff122ac64f1 = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_e666dfaac70237fd58651d77c6e94f5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64c3075cc30087e296b3cc582c1e5566 = $(`<div id="html_64c3075cc30087e296b3cc582c1e5566" style="width: 100.0%; height: 100.0%;">fi = altshift5 w/ Len Faki & Vement<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-altshift5-w-len-faki-vement-tickets-1116675659959?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_e666dfaac70237fd58651d77c6e94f5b.setContent(html_64c3075cc30087e296b3cc582c1e5566);
+            
+        
+
+        marker_09edcc8ec9d807d163517ff122ac64f1.bindPopup(popup_e666dfaac70237fd58651d77c6e94f5b)
+        ;
+
+        
+    
+    
+            var marker_eec8eef93dfb9c84f11a3e5e29ce4ce2 = L.marker(
+                [50.9513504, 6.9103032374903774],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_34a79895eac8377d9c50f893c10c2e4d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_713062c74fa85d48b2cc18b4d0a22375 = $(`<div id="html_713062c74fa85d48b2cc18b4d0a22375" style="width: 100.0%; height: 100.0%;">OLDSCHOOL FLASHBACK präsentiert 25 Jahre Soul Channel – Save the Date!<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/oldschool-flashback-prasentiert-25-jahre-soul-channel-save-the-date-tickets-1106360176069?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_34a79895eac8377d9c50f893c10c2e4d.setContent(html_713062c74fa85d48b2cc18b4d0a22375);
+            
+        
+
+        marker_eec8eef93dfb9c84f11a3e5e29ce4ce2.bindPopup(popup_34a79895eac8377d9c50f893c10c2e4d)
+        ;
+
+        
+    
+    
+            var marker_08b4a480ef9317b919edec095e327364 = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_8a33936bd8e73e9c0435a49bbcb4d1a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b38596a75b56d74ec585f5168eb19b6 = $(`<div id="html_5b38596a75b56d74ec585f5168eb19b6" style="width: 100.0%; height: 100.0%;">fi x Mano Le Tough & Jonathan Kaspar & Neue Wellen<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-x-mano-le-tough-jonathan-kaspar-neue-wellen-tickets-1117731929289?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_8a33936bd8e73e9c0435a49bbcb4d1a1.setContent(html_5b38596a75b56d74ec585f5168eb19b6);
+            
+        
+
+        marker_08b4a480ef9317b919edec095e327364.bindPopup(popup_8a33936bd8e73e9c0435a49bbcb4d1a1)
+        ;
+
+        
+    
+    
+            var marker_437f05d9dae1d889fa2c9a4ce126b12e = L.marker(
+                [50.9366304, 6.9349836],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_b35cf807371621ef6a3ca16648bf4bfa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bd798316d1765a63db264de9fe7ab76a = $(`<div id="html_bd798316d1765a63db264de9fe7ab76a" style="width: 100.0%; height: 100.0%;">Mobb Deep (Havoc, Big Noyd, DJ.L.E.S.) Live in Cologne<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/mobb-deep-havoc-big-noyd-djles-live-in-cologne-tickets-1052079667607?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_b35cf807371621ef6a3ca16648bf4bfa.setContent(html_bd798316d1765a63db264de9fe7ab76a);
+            
+        
+
+        marker_437f05d9dae1d889fa2c9a4ce126b12e.bindPopup(popup_b35cf807371621ef6a3ca16648bf4bfa)
+        ;
+
+        
+    
+    
+            var marker_58c790b98fe284c99b7b27487d52c9b8 = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_75b0c70f7a14b9e8db2cca01cc0330b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_09ad79803e36cdc06eb328c96a6071a5 = $(`<div id="html_09ad79803e36cdc06eb328c96a6071a5" style="width: 100.0%; height: 100.0%;">fi = altshift5 w/ Len Faki & Vement<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-altshift5-w-len-faki-vement-tickets-1116675659959?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_75b0c70f7a14b9e8db2cca01cc0330b6.setContent(html_09ad79803e36cdc06eb328c96a6071a5);
+            
+        
+
+        marker_58c790b98fe284c99b7b27487d52c9b8.bindPopup(popup_75b0c70f7a14b9e8db2cca01cc0330b6)
+        ;
+
+        
+    
+    
+            var marker_9cbfb83bf6559f2ff4510e1b58211638 = L.marker(
+                [50.9513504, 6.9103032374903774],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_df1af74d57fc3c4dad90938bcb81ee4b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e688ab351db062b25d6f9cb320887632 = $(`<div id="html_e688ab351db062b25d6f9cb320887632" style="width: 100.0%; height: 100.0%;">OLDSCHOOL FLASHBACK präsentiert 25 Jahre Soul Channel – Save the Date!<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/oldschool-flashback-prasentiert-25-jahre-soul-channel-save-the-date-tickets-1106360176069?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_df1af74d57fc3c4dad90938bcb81ee4b.setContent(html_e688ab351db062b25d6f9cb320887632);
+            
+        
+
+        marker_9cbfb83bf6559f2ff4510e1b58211638.bindPopup(popup_df1af74d57fc3c4dad90938bcb81ee4b)
+        ;
+
+        
+    
+    
+            var marker_a45b976b323d59311b52b19a5575892b = L.marker(
+                [50.9482109, 6.8929688],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_5800ac62d97c1f0e2b5852cf8c27531b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c14c6576fbc8f957dd94dc185bd6f04b = $(`<div id="html_c14c6576fbc8f957dd94dc185bd6f04b" style="width: 100.0%; height: 100.0%;">fi x Mano Le Tough & Jonathan Kaspar & Neue Wellen<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.de/e/fi-x-mano-le-tough-jonathan-kaspar-neue-wellen-tickets-1117731929289?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_5800ac62d97c1f0e2b5852cf8c27531b.setContent(html_c14c6576fbc8f957dd94dc185bd6f04b);
+            
+        
+
+        marker_a45b976b323d59311b52b19a5575892b.bindPopup(popup_5800ac62d97c1f0e2b5852cf8c27531b)
+        ;
+
+        
+    
+    
+            var marker_f2c570110961fa1f53f11f48a1228524 = L.marker(
+                [50.9366304, 6.9349836],
+                {
+}
+            ).addTo(map_cb736bf95e824bcf07e6c55f9116f423);
+        
+    
+        var popup_9ce19e2babf0b347a99d37dc4b2be00b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b0c18e06632b585d327288ae0b21fcd5 = $(`<div id="html_b0c18e06632b585d327288ae0b21fcd5" style="width: 100.0%; height: 100.0%;">Mobb Deep (Havoc, Big Noyd, DJ.L.E.S.) Live in Cologne<br>Adresse nicht gefunden<br><a href='https://www.eventbrite.com/e/mobb-deep-havoc-big-noyd-djles-live-in-cologne-tickets-1052079667607?aff=ebdssbcitybrowse' target='_blank'>Link</a></div>`)[0];
+                popup_9ce19e2babf0b347a99d37dc4b2be00b.setContent(html_b0c18e06632b585d327288ae0b21fcd5);
+            
+        
+
+        marker_f2c570110961fa1f53f11f48a1228524.bindPopup(popup_9ce19e2babf0b347a99d37dc4b2be00b)
+        ;
+
+        
+    
+</script>
+</html>
