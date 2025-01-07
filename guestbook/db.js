@@ -1,24 +1,39 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('guestbook.db');
+const mysql = require('mysql');
 
-db.serialize(() => {
-    db.run("CREATE TABLE IF NOT EXISTS entries (id INTEGER PRIMARY KEY, name TEXT, message TEXT)");
+// Ersetzen Sie die Platzhalter durch Ihre Datenbankverbindungsdetails
+const connection = mysql.createConnection({
+    host: '3306', // oder die IP-Adresse des MySQL-Servers
+    user: 'mysql',
+    password: 'Y75kuZ1x7m7IBnvrKXItmynaxi6wOde9t1GVGfe4IDy68',
+    database: 'Database'
 });
 
+// Verbindung zur Datenbank herstellen
+connection.connect((err) => {
+    if (err) {
+        console.error('Fehler bei der Verbindung zur Datenbank: ' + err.stack);
+        return;
+    }
+    console.log('Verbunden mit der Datenbank als ID ' + connection.threadId);
+});
+
+// Funktion zum Speichern eines Eintrags
 function saveEntry(name, message) {
     return new Promise((resolve, reject) => {
-        db.run("INSERT INTO entries (name, message) VALUES (?, ?)", [name, message], function(err) {
+        const query = 'INSERT INTO entries (name, message) VALUES (?, ?)';
+        connection.query(query, [name, message], (err, results) => {
             if (err) {
                 return reject(err);
             }
-            resolve(this.lastID);
+            resolve(results.insertId);
         });
     });
 }
 
+// Funktion zum Abrufen der Einträge
 function getEntries() {
     return new Promise((resolve, reject) => {
-        db.all("SELECT * FROM entries", [], (err, rows) => {
+        connection.query('SELECT * FROM entries', (err, rows) => {
             if (err) {
                 return reject(err);
             }
