@@ -174,12 +174,10 @@
 
             if (index === 0) {
                 // Kopf der Schlange
-                switch (direction) {
-                    case 'UP': image = images.head_up; break;
-                    case 'RIGHT': image = images.head_right; break;
-                    case 'DOWN': image = images.head_down; break;
-                    case 'LEFT': image = images.head_left; break;
-                }
+                if (part.x === nextPart.x && part.y < nextPart.y) image = images.head_up;
+                if (part.x > nextPart.x && part.y === nextPart.y) image = images.head_right;
+                if (part.x === nextPart.x && part.y > nextPart.y) image = images.head_down;
+                if (part.x < nextPart.x && part.y === nextPart.y) image = images.head_left;
             } else if (index === snake.length - 1) {
                 // Schwanz der Schlange
                 if (prevPart.x > part.x) image = images.tail_right;
@@ -344,7 +342,7 @@
                 clearInterval(interval);
                 pauseState = 'Pause'
             } else if (e.keyCode == 80 && pauseState !== 'Continue') {
-                interval = setInterval(gameLoop, 100);
+                interval = setInterval(gameLoop, 500);
                 pauseState = 'Continue';
             }
         }
