@@ -1,37 +1,125 @@
+#backgroundVideo {
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.home-button {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.home-button img {
+  height: 100%;
+  width: 100%;
+}
+
+.home-button button {
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 60px;
+  width: 80px;
+  border: none;
+  outline: none;
+  color: white;
+  background: #111;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 25px;
+  font-family: "Barrio", system-ui;
+  opacity: 0.6;
+}
+.home-button button:before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(5px);
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-size: 400%;
+  transition: opacity 0.3s ease-in-out;
+  animation: animate 20s linear infinite;
+}
+.home-button button:hover:before {
+  opacity: 1;
+}
+.home-button button:hover:active {
+  background: none;
+}
+.home-button button:hover:active:before {
+  filter: blur(2px);
+}
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Volle Höhe des Viewports */
-    margin: 0; /* Entferne Standard-Margen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Volle Höhe des Viewports */
+  margin: 0; /* Entferne Standard-Margen */
 }
 
 .game-container {
-    position: relative; /* Erlaube absolute Positionierung für den Button */
+  position: relative; /* Erlaube absolute Positionierung für den Button */
 }
 
 #startButton {
-    position: absolute; /* Absolute Positionierung */
-    top: 0px; /* Positioniere den Button über dem Canvas */
-    left: 50%; /* Zentriere horizontal */
-    transform: translateX(-50%); /* Verschiebe den Button um die Hälfte seiner Breite nach links */
-    padding: 15px 25px; /* Füge etwas Polsterung hinzu */
-    font-size: 24px; /* Schriftgröße */
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+  position: absolute; /* Absolute Positionierung */
+  top: 100px; /* Positioniere den Button über dem Canvas */
+  left: 50%; /* Zentriere horizontal */
+  transform: translateX(
+    -50%
+  ); /* Verschiebe den Button um die Hälfte seiner Breite nach links */
+  padding: 15px 25px; /* Füge etwas Polsterung hinzu */
+  font-size: 24px; /* Schriftgröße */
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04aa6d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
-.button:hover {background-color: #3e8e41}
+.button:hover {
+  background-color: #3e8e41;
+}
 
 .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
