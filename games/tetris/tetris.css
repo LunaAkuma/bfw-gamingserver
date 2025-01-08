@@ -34,7 +34,7 @@ body {
   position: absolute;
   top: 20px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-60%);
 }
 
 .home-button img {
