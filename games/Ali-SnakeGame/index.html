@@ -174,16 +174,16 @@
 
             if (index === 0) {
                 // Kopf der Schlange
-                if (part.x === nextPart.x && part.y < nextPart.y) image = images.head_up;
-                if (part.x > nextPart.x && part.y === nextPart.y) image = images.head_right;
-                if (part.x === nextPart.x && part.y > nextPart.y) image = images.head_down;
-                if (part.x < nextPart.x && part.y === nextPart.y) image = images.head_left;
+                if (part.x === nextPart.x && part.y + 1 === nextPart.y || part.x === nextPart.x && part.y > nextPart.y + 1) image = images.head_up;
+                if (part.x === nextPart.x + 1 && part.y === nextPart.y || part.x + 1 < nextPart.x && part.y === nextPart.y) image = images.head_right;
+                if (part.x === nextPart.x && part.y === nextPart.y + 1 || part.x === nextPart.x && part.y + 1 < nextPart.y) image = images.head_down;
+                if (part.x + 1 === nextPart.x && part.y === nextPart.y || part.x > nextPart.x + 1 && part.y === nextPart.y) image = images.head_left;
             } else if (index === snake.length - 1) {
                 // Schwanz der Schlange
-                if (prevPart.x > part.x) image = images.tail_right;
-                if (prevPart.x < part.x) image = images.tail_left;
-                if (prevPart.y > part.y) image = images.tail_down;
-                if (prevPart.y < part.y) image = images.tail_up;
+                if (prevPart.x === part.x + 1 || prevPart.x + 1 < part.x) image = images.tail_right;
+                if (prevPart.x + 1 === part.x || prevPart.x > part.x + 1) image = images.tail_left;
+                if (prevPart.y === part.y + 1 || prevPart.y + 1 < part.y) image = images.tail_down;
+                if (prevPart.y + 1 === part.y || prevPart.y > part.y + 1) image = images.tail_up;
             } else {
                 // Körper der Schlange
                 if (prevPart.x === part.x && nextPart && nextPart.x === part.x) {
@@ -216,7 +216,7 @@
         function start() {
             placeFood();
             score = 0; // Punktestand zurücksetzen
-            interval = setInterval(gameLoop, 100); // Spielschritte wiederholen
+            interval = setInterval(gameLoop, 500); // Spielschritte wiederholen
             document.addEventListener('keydown', keyDown); // Tasteneingaben abfangen
             startButton.removeEventListener("click", start);
             startButton.addEventListener("click", stop);
