@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Volle Höhe des Viewports */
+    margin: 0; /* Entferne Standard-Margen */
+}
+
+.game-container {
+    position: relative; /* Erlaube absolute Positionierung für den Button */
+}
+
+#startButton {
+    position: absolute; /* Absolute Positionierung */
+    top: 0px; /* Positioniere den Button über dem Canvas */
+    left: 50%; /* Zentriere horizontal */
+    transform: translateX(-50%); /* Verschiebe den Button um die Hälfte seiner Breite nach links */
+    padding: 15px 25px; /* Füge etwas Polsterung hinzu */
+    font-size: 24px; /* Schriftgröße */
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
