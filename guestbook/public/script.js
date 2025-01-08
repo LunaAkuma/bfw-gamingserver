@@ -5,7 +5,7 @@ document.getElementById('guestbookForm').addEventListener('submit', function(eve
     const message = document.getElementById('message').value;
 
     // Daten an den Server senden
-    fetch('/api/guestbook', {
+    fetch('http://strapi-s8k0c8gkc0gs44k0g0o8ocgg.176.6.49.236.sslip.io:1337', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
