@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3o50s35backm"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_42epd"]
+[ext_resource type="PackedScene" uid="uid://dv2jt2li1ogew" path="res://score.tscn" id="2_s72tk"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_42epd")
+
+[node name="SCORE1" parent="." instance=ExtResource("2_s72tk")]
+anchor_left = 0.179
+anchor_right = 0.179
+offset_left = -0.208008
+offset_right = 39.792
+offset_bottom = 69.0
+
+[node name="SCORE2" parent="." instance=ExtResource("2_s72tk")]
+anchor_left = 0.828
+anchor_right = 0.828
+offset_left = -39.8561
+offset_right = 0.143921
+offset_bottom = 69.0
