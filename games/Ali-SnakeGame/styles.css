@@ -123,3 +123,13 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.guestbook {
+  position: absolute;
+  bottom: 57px;
+  scale: 10%;
+}
+
+.guestbook img {
+  position: fixed;
+  transform: translateX(-50%);
+}

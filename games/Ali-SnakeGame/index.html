@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snake Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #282828;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #282828;
+      }
 
-        canvas {
-            border: 1px solid white;
-        }
+      canvas {
+        border: 1px solid white;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Home Button -->
     <div class="home-button">
-        <a href="/index.html">
-            <button><img src="/games/Ali-SnakeGame/home.png" /></button>
-        </a>
+      <a href="/index.html">
+        <button><img src="/games/Ali-SnakeGame/home.png" /></button>
+      </a>
     </div>
 
     <!-- Hintergrundvideo -->
     <video muted loop id="backgroundVideo">
-        <source src="/site/site videos/vid2.webm" />
+      <source src="/site/site videos/vid2.webm" />
     </video>
 
     <!-- Container für das Spiel -->
@@ -43,309 +43,390 @@
 
     <!-- Spielfeld (Canvas) -->
     <canvas id="canvas" width="800" height="600"></canvas>
-    
+
     <script>
-        // Spiel-Konfiguration und Variablen
-        let canvas = document.getElementById('canvas');
-        let ctx = canvas.getContext('2d');
-        let rows = 15; // Anzahl der Zeilen
-        let cols = 20; // Anzahl der Spalten
-        let snake = [{x: 3, y: 2}, {x: 4, y: 2}, {x: 5, y: 2}]; // Snake initialisieren
-        let food;
-        let cellWidth = canvas.width / cols;
-        let cellHeight = canvas.height / rows;
-        let direction = 'LEFT'; // Anfangsrichtung der Schlange
-        let foodCollected = false; // Status des Futters
-        let interval;
-        let pauseState;
-        let score = 0; // Punktestand initialisieren
+      // Spiel-Konfiguration und Variablen
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let rows = 15; // Anzahl der Zeilen
+      let cols = 20; // Anzahl der Spalten
+      let snake = [
+        { x: 3, y: 2 },
+        { x: 4, y: 2 },
+        { x: 5, y: 2 },
+      ]; // Snake initialisieren
+      let food;
+      let cellWidth = canvas.width / cols;
+      let cellHeight = canvas.height / rows;
+      let direction = "LEFT"; // Anfangsrichtung der Schlange
+      let foodCollected = false; // Status des Futters
+      let interval;
+      let pauseState;
+      let score = 0; // Punktestand initialisieren
 
-        // Bilder für die Snake-Teile laden
-        var images = {
-            head_up: new Image(),
-            head_right: new Image(),
-            head_down: new Image(),
-            head_left: new Image(),
-            tail_up: new Image(),
-            tail_right: new Image(),
-            tail_down: new Image(),
-            tail_left: new Image(),
-            body_vertical: new Image(),
-            body_horizontal: new Image(),
-            body_up_right: new Image(),
-            body_up_left: new Image(),
-            body_down_right: new Image(),
-            body_down_left: new Image(),
-            appleImage: new Image()
-        };
+      // Bilder für die Snake-Teile laden
+      var images = {
+        head_up: new Image(),
+        head_right: new Image(),
+        head_down: new Image(),
+        head_left: new Image(),
+        tail_up: new Image(),
+        tail_right: new Image(),
+        tail_down: new Image(),
+        tail_left: new Image(),
+        body_vertical: new Image(),
+        body_horizontal: new Image(),
+        body_up_right: new Image(),
+        body_up_left: new Image(),
+        body_down_right: new Image(),
+        body_down_left: new Image(),
+        appleImage: new Image(),
+      };
 
-        // Bilder laden und das Spiel starten, wenn alle geladen sind
-        let imagesLoaded = 0;
-        const totalImages = Object.keys(images).length;
+      // Bilder laden und das Spiel starten, wenn alle geladen sind
+      let imagesLoaded = 0;
+      const totalImages = Object.keys(images).length;
 
-        function onImageLoad() {
-            imagesLoaded++;
-            if (imagesLoaded === totalImages) {
-                start();  // Starte das Spiel, wenn alle Bilder geladen sind
-            }
+      function onImageLoad() {
+        imagesLoaded++;
+        if (imagesLoaded === totalImages) {
+          start(); // Starte das Spiel, wenn alle Bilder geladen sind
+        }
+      }
+
+      // Bilderquellen zuweisen
+      images.head_up.src = "snake-head-up.png";
+      images.head_up.onload = onImageLoad;
+
+      images.head_right.src = "snake-head-right.png";
+      images.head_right.onload = onImageLoad;
+
+      images.head_down.src = "snake-head-down.png";
+      images.head_down.onload = onImageLoad;
+
+      images.head_left.src = "snake-head-left.png";
+      images.head_left.onload = onImageLoad;
+
+      images.tail_up.src = "snake-tail-up.png";
+      images.tail_up.onload = onImageLoad;
+
+      images.tail_right.src = "snake-tail-right.png";
+      images.tail_right.onload = onImageLoad;
+
+      images.tail_down.src = "snake-tail-down.png";
+      images.tail_down.onload = onImageLoad;
+
+      images.tail_left.src = "snake-tail-left.png";
+      images.tail_left.onload = onImageLoad;
+
+      images.body_vertical.src = "snake-body-vertical.png";
+      images.body_vertical.onload = onImageLoad;
+
+      images.body_horizontal.src = "snake-body-horizontal.png";
+      images.body_horizontal.onload = onImageLoad;
+
+      images.body_up_right.src = "snake-body-up-right.png";
+      images.body_up_right.onload = onImageLoad;
+
+      images.body_up_left.src = "snake-body-up-left.png";
+      images.body_up_left.onload = onImageLoad;
+
+      images.body_down_right.src = "snake-body-down-right.png";
+      images.body_down_right.onload = onImageLoad;
+
+      images.body_down_left.src = "snake-body-down-left.png";
+      images.body_down_left.onload = onImageLoad;
+
+      images.appleImage.src = "apple.png";
+      images.appleImage.onload = onImageLoad;
+
+      var startButton = document.getElementById("startButton");
+      startButton.addEventListener("click", start);
+
+      // Spielfeld zeichnen
+      draw();
+
+      // Spielfeld, Snake und Futter zeichnen
+      function draw() {
+        ctx.fillStyle = "#f7e697";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#000"; // Setze die Farbe für den Text
+        ctx.font = "20px Arial"; // Setze die Schriftgröße und den Schriftstil
+        ctx.fillText("SCORE: " + score * 10, 10, canvas.height - 10); // Punktestand anzeigen
+
+        // Schlange zeichnen
+        snake.forEach((part, index) => {
+          let prevPart = snake[index - 1] || null;
+          let nextPart = snake[index + 1] || null;
+          let image = getSnakePartImage(index, prevPart, nextPart);
+          ctx.drawImage(
+            image,
+            part.x * cellWidth,
+            part.y * cellHeight,
+            cellWidth,
+            cellHeight
+          );
+        });
+
+        // Futter zeichnen
+        if (food) {
+          ctx.drawImage(
+            images.appleImage,
+            food.x * cellWidth,
+            food.y * cellHeight,
+            cellWidth,
+            cellHeight
+          );
         }
 
-        // Bilderquellen zuweisen
-        images.head_up.src = "snake-head-up.png";
-        images.head_up.onload = onImageLoad;
+        // Animation anfordern
+        requestAnimationFrame(draw);
+      }
 
-        images.head_right.src = "snake-head-right.png";
-        images.head_right.onload = onImageLoad;
+      // Bestimmen, welches Bild für jedes Snake-Teil verwendet wird
+      function getSnakePartImage(index, prevPart, nextPart) {
+        let part = snake[index];
+        let image;
 
-        images.head_down.src = "snake-head-down.png";
-        images.head_down.onload = onImageLoad;
-
-        images.head_left.src = "snake-head-left.png";
-        images.head_left.onload = onImageLoad;
-
-        images.tail_up.src = "snake-tail-up.png";
-        images.tail_up.onload = onImageLoad;
-
-        images.tail_right.src = "snake-tail-right.png";
-        images.tail_right.onload = onImageLoad;
-
-        images.tail_down.src = "snake-tail-down.png";
-        images.tail_down.onload = onImageLoad;
-
-        images.tail_left.src = "snake-tail-left.png";
-        images.tail_left.onload = onImageLoad;
-
-        images.body_vertical.src = "snake-body-vertical.png";
-        images.body_vertical.onload = onImageLoad;
-
-        images.body_horizontal.src = "snake-body-horizontal.png";
-        images.body_horizontal.onload = onImageLoad;
-
-        images.body_up_right.src = "snake-body-up-right.png";
-        images.body_up_right.onload = onImageLoad;
-
-        images.body_up_left.src = "snake-body-up-left.png";
-        images.body_up_left.onload = onImageLoad;
-
-        images.body_down_right.src = "snake-body-down-right.png";
-        images.body_down_right.onload = onImageLoad;
-
-        images.body_down_left.src = "snake-body-down-left.png";
-        images.body_down_left.onload = onImageLoad;
-    
-        images.appleImage.src = "apple.png";
-        images.appleImage.onload = onImageLoad;
-
-        var startButton = document.getElementById("startButton");
-        startButton.addEventListener("click", start)
-
-        // Spielfeld zeichnen
-        draw();
-
-        // Spielfeld, Snake und Futter zeichnen
-        function draw() {
-            ctx.fillStyle = '#f7e697';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#000"; // Setze die Farbe für den Text
-            ctx.font = "20px Arial"; // Setze die Schriftgröße und den Schriftstil
-            ctx.fillText("SCORE: " + score * 10, 10, canvas.height-10); // Punktestand anzeigen
-
-            // Schlange zeichnen
-            snake.forEach((part, index) => {
-                let prevPart = snake[index - 1] || null;
-                let nextPart = snake[index + 1] || null;
-                let image = getSnakePartImage(index, prevPart, nextPart);
-                ctx.drawImage(image, part.x * cellWidth, part.y * cellHeight, cellWidth, cellHeight);
-            });
-
-            // Futter zeichnen
-            if(food){
-                ctx.drawImage(images.appleImage, food.x * cellWidth, food.y * cellHeight, cellWidth, cellHeight);
-            }
-            
-            // Animation anfordern
-            requestAnimationFrame(draw);
+        if (index === 0) {
+          // Kopf der Schlange
+          if (
+            (part.x === nextPart.x && part.y + 1 === nextPart.y) ||
+            (part.x === nextPart.x && part.y > nextPart.y + 1)
+          )
+            image = images.head_up;
+          if (
+            (part.x === nextPart.x + 1 && part.y === nextPart.y) ||
+            (part.x + 1 < nextPart.x && part.y === nextPart.y)
+          )
+            image = images.head_right;
+          if (
+            (part.x === nextPart.x && part.y === nextPart.y + 1) ||
+            (part.x === nextPart.x && part.y + 1 < nextPart.y)
+          )
+            image = images.head_down;
+          if (
+            (part.x + 1 === nextPart.x && part.y === nextPart.y) ||
+            (part.x > nextPart.x + 1 && part.y === nextPart.y)
+          )
+            image = images.head_left;
+        } else if (index === snake.length - 1) {
+          // Schwanz der Schlange
+          if (prevPart.x === part.x + 1 || prevPart.x + 1 < part.x)
+            image = images.tail_right;
+          if (prevPart.x + 1 === part.x || prevPart.x > part.x + 1)
+            image = images.tail_left;
+          if (prevPart.y === part.y + 1 || prevPart.y + 1 < part.y)
+            image = images.tail_down;
+          if (prevPart.y + 1 === part.y || prevPart.y > part.y + 1)
+            image = images.tail_up;
+        } else {
+          // Körper der Schlange
+          if (prevPart.x === part.x && nextPart && nextPart.x === part.x) {
+            image = images.body_vertical;
+          } else if (
+            prevPart.y === part.y &&
+            nextPart &&
+            nextPart.y === part.y
+          ) {
+            image = images.body_horizontal;
+          } else if (
+            prevPart.x === part.x &&
+            prevPart.y < part.y &&
+            nextPart.x > part.x &&
+            nextPart.y === part.y
+          ) {
+            image = images.body_up_right;
+          } else if (
+            prevPart.x > part.x &&
+            nextPart.x === part.x &&
+            prevPart.y === part.y &&
+            nextPart.y < part.y
+          ) {
+            image = images.body_up_right;
+          } else if (
+            prevPart.x === part.x &&
+            nextPart.x < part.x &&
+            prevPart.y < part.y
+          ) {
+            image = images.body_up_left;
+          } else if (prevPart.x < part.x && nextPart.y < part.y) {
+            image = images.body_up_left;
+          } else if (prevPart.x < part.x && nextPart.y > part.y) {
+            image = images.body_down_left;
+          } else if (
+            prevPart.x === part.x &&
+            prevPart.y > part.y &&
+            nextPart.x < part.x
+          ) {
+            image = images.body_down_left;
+          } else if (
+            prevPart.x === part.x &&
+            nextPart.y === part.y &&
+            prevPart.y > part.y
+          ) {
+            image = images.body_down_right;
+          } else if (
+            prevPart.x > part.x &&
+            prevPart.y === part.y &&
+            nextPart.y > part.y
+          ) {
+            image = images.body_down_right;
+          }
         }
 
-        // Bestimmen, welches Bild für jedes Snake-Teil verwendet wird
-        function getSnakePartImage(index, prevPart, nextPart) {
-            let part = snake[index];
-            let image;
+        return image;
+      }
 
-            if (index === 0) {
-                // Kopf der Schlange
-                if (part.x === nextPart.x && part.y + 1 === nextPart.y || part.x === nextPart.x && part.y > nextPart.y + 1) image = images.head_up;
-                if (part.x === nextPart.x + 1 && part.y === nextPart.y || part.x + 1 < nextPart.x && part.y === nextPart.y) image = images.head_right;
-                if (part.x === nextPart.x && part.y === nextPart.y + 1 || part.x === nextPart.x && part.y + 1 < nextPart.y) image = images.head_down;
-                if (part.x + 1 === nextPart.x && part.y === nextPart.y || part.x > nextPart.x + 1 && part.y === nextPart.y) image = images.head_left;
-            } else if (index === snake.length - 1) {
-                // Schwanz der Schlange
-                if (prevPart.x === part.x + 1 || prevPart.x + 1 < part.x) image = images.tail_right;
-                if (prevPart.x + 1 === part.x || prevPart.x > part.x + 1) image = images.tail_left;
-                if (prevPart.y === part.y + 1 || prevPart.y + 1 < part.y) image = images.tail_down;
-                if (prevPart.y + 1 === part.y || prevPart.y > part.y + 1) image = images.tail_up;
-            } else {
-                // Körper der Schlange
-                if (prevPart.x === part.x && nextPart && nextPart.x === part.x) {
-                    image = images.body_vertical;
-                } else if (prevPart.y === part.y && nextPart && nextPart.y === part.y) {
-                    image = images.body_horizontal;
-                } else if (prevPart.x === part.x && prevPart.y < part.y && nextPart.x > part.x && nextPart.y === part.y  ) {
-                    image = images.body_up_right;
-                } else if (prevPart.x > part.x && nextPart.x === part.x && prevPart.y === part.y && nextPart.y < part.y) {
-                    image = images.body_up_right;
-                } else if (prevPart.x === part.x && nextPart.x < part.x && prevPart.y < part.y) {
-                    image = images.body_up_left;
-                } else if (prevPart.x < part.x && nextPart.y < part.y) {
-                    image = images.body_up_left;
-                } else if (prevPart.x < part.x && nextPart.y > part.y) {
-                    image = images.body_down_left;
-                } else if (prevPart.x === part.x && prevPart.y > part.y && nextPart.x < part.x) {
-                    image = images.body_down_left;
-                } else if (prevPart.x === part.x && nextPart.y === part.y && prevPart.y > part.y) {
-                    image = images.body_down_right;
-                } else if (prevPart.x > part.x && prevPart.y === part.y && nextPart.y > part.y) {
-                    image = images.body_down_right;
-                }
-            }
+      // Spiel starten
+      function start() {
+        placeFood();
+        score = 0; // Punktestand zurücksetzen
+        interval = setInterval(gameLoop, 500); // Spielschritte wiederholen
+        document.addEventListener("keydown", keyDown); // Tasteneingaben abfangen
+        startButton.removeEventListener("click", start);
+        startButton.addEventListener("click", stop);
+        startButton.value = "Stop"; // Start-Button zu Stop-Button ändern
+        snake = [
+          { x: 3, y: 2 },
+          { x: 4, y: 2 },
+          { x: 5, y: 2 },
+        ]; // Schlange zurücksetzen
+      }
 
-            return image;
+      // Spiel stoppen
+      function stop() {
+        startButton.removeEventListener("click", stop);
+        startButton.addEventListener("click", start);
+        startButton.value = "Start"; // Stop-Button zu Start-Button ändern
+        clearInterval(interval); // Spiel anhalten
+      }
+
+      // Spiel verloren und zurücksetzen
+      function gameOver() {
+        let firstPart = snake[0];
+        let otherParts = snake.slice(1);
+        let duplicatepart = otherParts.find(
+          (part) => part.x == firstPart.x && part.y == firstPart.y
+        );
+
+        if (duplicatepart) {
+          clearInterval(interval); // Spiel stoppen
+          alert("Game Over! Dein Punktestand: " + score * 10); // Punktestand anzeigen
+          placeFood();
+          snake = [
+            { x: 3, y: 2 },
+            { x: 4, y: 2 },
+            { x: 5, y: 2 },
+          ];
+          direction = "LEFT";
+          score = 0; // Punktestand zurücksetzen
+        }
+      }
+
+      // Futter platzieren
+      function placeFood() {
+        let randomX = Math.floor(Math.random() * cols);
+        let randomY = Math.floor(Math.random() * rows);
+
+        // Stelle sicher, dass das Futter nicht auf der Schlange erscheint
+        while (snake.some((part) => part.x === randomX && part.y == randomY)) {
+          randomX = Math.floor(Math.random() * cols);
+          randomY = Math.floor(Math.random() * rows);
         }
 
-        // Spiel starten
-        function start() {
-            placeFood();
-            score = 0; // Punktestand zurücksetzen
-            interval = setInterval(gameLoop, 500); // Spielschritte wiederholen
-            document.addEventListener('keydown', keyDown); // Tasteneingaben abfangen
-            startButton.removeEventListener("click", start);
-            startButton.addEventListener("click", stop);
-            startButton.value = "Stop"; // Start-Button zu Stop-Button ändern
-            snake = [{x: 3, y: 2}, {x: 4, y: 2}, {x: 5, y: 2}]; // Schlange zurücksetzen
+        food = { x: randomX, y: randomY };
+      }
+
+      // Snake bewegt sich ein schritt nach vorne.
+      // Jeder Snake teil wird auf vorherige Snake teil Position bewegt und dadurch alle teilen bewegen sich ein schritt nach vorne.
+      function shiftSnake() {
+        for (let index = snake.length - 1; index > 0; index--) {
+          const part = snake[index];
+          const lastPart = snake[index - 1];
+          part.x = lastPart.x;
+          part.y = lastPart.y;
+        }
+      }
+
+      // Die Spielschritte werden wiederholt.
+      // gameOver, schiftSnake, foodCollection, placeFood und eingabekontrolle.
+      function gameLoop() {
+        gameOver();
+
+        if (foodCollected) {
+          snake.push({ x: snake[0].x, y: snake[0].y }); // Schlange verlängern
+          score++; // Erhöhe den Punktestand, wenn Futter gesammelt wird
+          foodCollected = false;
         }
 
-        // Spiel stoppen
-        function stop() {
-            startButton.removeEventListener("click", stop);
-            startButton.addEventListener("click", start);
-            startButton.value = "Start"; // Stop-Button zu Start-Button ändern
-            clearInterval(interval); // Spiel anhalten
+        shiftSnake();
+
+        // Schlange bewegen
+        if (direction == "LEFT") {
+          if (snake[0].x == 0) {
+            snake[0].x = cols - 1; // Rand der Karte erreichen
+          } else {
+            snake[0].x--;
+          }
+        }
+        if (direction == "UP") {
+          if (snake[0].y == 0) {
+            snake[0].y = rows - 1;
+          } else {
+            snake[0].y--;
+          }
+        }
+        if (direction == "RIGHT") {
+          if (snake[0].x == cols - 1) {
+            snake[0].x = 0;
+          } else {
+            snake[0].x++;
+          }
+        }
+        if (direction == "DOWN") {
+          if (snake[0].y == rows - 1) {
+            snake[0].y = 0;
+          } else {
+            snake[0].y++;
+          }
+        }
+        // Futter sammeln
+        if (snake[0].x == food.x && snake[0].y == food.y) {
+          foodCollected = true;
+          placeFood();
+        }
+      }
+
+      // Tastensteuerung (Pfeiltasten und Pause)
+      function keyDown(e) {
+        if (e.keyCode == 37 && direction !== "RIGHT") {
+          direction = "LEFT";
+        }
+        if (e.keyCode == 38 && direction !== "DOWN") {
+          direction = "UP";
+        }
+        if (e.keyCode == 39 && direction !== "LEFT") {
+          direction = "RIGHT";
+        }
+        if (e.keyCode == 40 && direction !== "UP") {
+          direction = "DOWN";
         }
 
-        // Spiel verloren und zurücksetzen
-        function gameOver() {
-            let firstPart = snake[0];
-            let otherParts = snake.slice(1);
-            let duplicatepart = otherParts.find(part => part.x == firstPart.x && part.y == firstPart.y);
-
-            if (duplicatepart) {
-                clearInterval(interval); // Spiel stoppen
-                alert("Game Over! Dein Punktestand: " + score*10); // Punktestand anzeigen
-                placeFood();
-                snake = [{x: 3, y: 2}, {x: 4, y: 2}, {x: 5, y: 2}];
-                direction = 'LEFT';
-                score = 0; // Punktestand zurücksetzen
-            }
+        // Pause umschalten
+        if (e.keyCode == 80 && pauseState !== "Pause") {
+          clearInterval(interval);
+          pauseState = "Pause";
+        } else if (e.keyCode == 80 && pauseState !== "Continue") {
+          interval = setInterval(gameLoop, 500);
+          pauseState = "Continue";
         }
-
-        // Futter platzieren
-        function placeFood() {
-            let randomX = Math.floor(Math.random() * cols);
-            let randomY = Math.floor(Math.random() * rows);
-
-            // Stelle sicher, dass das Futter nicht auf der Schlange erscheint
-            while (snake.some(part => part.x === randomX && part.y == randomY)) {
-                randomX = Math.floor(Math.random() * cols);
-                randomY = Math.floor(Math.random() * rows);
-            }
-
-            food = { x: randomX, y: randomY };
-        }
-
-        // Snake bewegt sich ein schritt nach vorne.
-        // Jeder Snake teil wird auf vorherige Snake teil Position bewegt und dadurch alle teilen bewegen sich ein schritt nach vorne.
-        function shiftSnake(){
-            for (let index = snake.length - 1; index > 0; index--) {
-                const part = snake[index];
-                const lastPart = snake[index - 1];
-                part.x = lastPart.x;
-                part.y = lastPart.y;
-            }
-        }
-
-        // Die Spielschritte werden wiederholt.
-        // gameOver, schiftSnake, foodCollection, placeFood und eingabekontrolle.
-        function gameLoop(){
-            gameOver()
-
-            if (foodCollected){
-                snake.push({x: snake[0].x, y: snake[0].y}); // Schlange verlängern
-                score++; // Erhöhe den Punktestand, wenn Futter gesammelt wird
-                foodCollected = false;
-            }
-
-            shiftSnake();
-
-            // Schlange bewegen
-            if (direction == 'LEFT' ){
-                if (snake[0].x == 0) {
-                    snake[0].x = (cols - 1) // Rand der Karte erreichen
-                } else {
-                    snake[0].x--;
-                }
-            }
-            if (direction == 'UP' ){
-                if (snake[0].y == 0) {
-                    snake[0].y = (rows - 1)
-                } else {
-                    snake[0].y--;
-                }               
-            }
-            if (direction == 'RIGHT' ){
-                if (snake[0].x == (cols - 1)) {
-                    snake[0].x = 0
-                } else {
-                    snake[0].x++;
-                }              
-            }
-            if (direction == 'DOWN' ){
-                if (snake[0].y == (rows - 1)) {
-                    snake[0].y = 0
-                } else {
-                    snake[0].y++;
-                }
-            }
-            // Futter sammeln
-            if (snake[0].x == food.x && snake[0].y == food.y) {
-                foodCollected = true;
-                placeFood();
-            }
-        }
-
-        // Tastensteuerung (Pfeiltasten und Pause)
-        function keyDown(e) {
-            if (e.keyCode == 37 && direction !== 'RIGHT') {
-                direction = 'LEFT';
-            }
-            if (e.keyCode == 38 && direction !== 'DOWN') {
-                direction = 'UP';
-            }
-            if (e.keyCode == 39 && direction !== 'LEFT') {
-                direction = 'RIGHT';
-            }
-            if (e.keyCode == 40 && direction !== 'UP') {
-                direction = 'DOWN';
-            }
-
-            // Pause umschalten
-            if (e.keyCode == 80 && pauseState !== 'Pause') {
-                clearInterval(interval);
-                pauseState = 'Pause'
-            } else if (e.keyCode == 80 && pauseState !== 'Continue') {
-                interval = setInterval(gameLoop, 500);
-                pauseState = 'Continue';
-            }
-        }
+      }
     </script>
-</body>
+    <div class="guestbook">
+      <a href="/guestbook/public/index.html">
+        <img src="/site/site images/guestbook.png"
+      /></a>
+    </div>
+  </body>
 </html>
