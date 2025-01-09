@@ -58,6 +58,17 @@ body {
   transform: scaleX(-1);
 }
 
+.Randbild3 {
+  position: absolute;
+  right: 63px;
+  top: 670px;
+}
+
+.Randbild3 img {
+  opacity: 0.15;
+  scale: 10%;
+}
+
 .head h1 {
   position: absolute;
   color: red;
