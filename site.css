@@ -65,8 +65,19 @@ body {
 }
 
 .Randbild3 img {
-  opacity: 0.13;
+  opacity: 0.08;
   height: 70px;
+}
+
+.Randbild4 {
+  position: absolute;
+  left: 260px;
+  top: 810px;
+}
+
+.Randbild4 img {
+  opacity: 0.09;
+  height: 116px;
 }
 
 .head h1 {
