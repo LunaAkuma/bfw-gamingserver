@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dv2jt2li1ogew"]
+
+[node name="SCORE1" type="Label"]
+anchors_preset = -1
+anchor_left = 0.132
+anchor_right = 0.132
+offset_left = -0.0639954
+offset_right = 39.936
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
