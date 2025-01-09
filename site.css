@@ -60,13 +60,13 @@ body {
 
 .Randbild3 {
   position: absolute;
-  right: 63px;
-  top: 670px;
+  right: 280px;
+  top: 877px;
 }
 
 .Randbild3 img {
-  opacity: 0.15;
-  scale: 10%;
+  opacity: 0.13;
+  height: 70px;
 }
 
 .head h1 {
