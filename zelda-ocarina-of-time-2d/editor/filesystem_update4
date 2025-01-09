@@ -1,0 +1,27 @@
+res://Levels/Kokiriwald/world.tscn
+res://scenes/player.tscn
+res://GeneralNodes/Hitbox/hit_box.tscn
+res://GeneralNodes/HurtBox/hurt_box.tscn
+res://Props/Plant/Pflanze.tscn
+res://Enemies/goma lava new/goma_lava_new.tscn
+res://Enemies/Gohma/Gohma.tscn
+res://GUI/player_hud/Player_hud.tscn
+res://GUI/player_hud/heart.tscn
+res://Levels/Level_skripts/Player_spwan.tscn
+res://Levels/Level_skripts/level_transition.tscn
+res://Levels/Kokiriwald/links_home.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_raum_1.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_raum_1_oben.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_eg_raum_2.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_eg_raum_3.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_raum_og_1.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_raum_1.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_raum_2.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_raum_3.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_raum_4.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_raum_5.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_1_raum_1.tscn
+res://Levels/Kokiriwald/DekuBaum/deku_baum_ug_1_raum_2.tscn
+res://deku_baba.tscn
+res://level_transition_round.tscn
+res://Enemies/vision_area.tscn

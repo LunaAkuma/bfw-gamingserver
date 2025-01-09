@@ -1,0 +1,375 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1736417296
+default_bus_layout.tres::AudioBusLayout::3459897612701056097::1733595656::0::1::::<><>::
+deku_baba.gd::GDScript::-1::1736043486::0::1::::<>Node2D<>::
+deku_baba.tscn::PackedScene::1818746536312123666::1736412804::0::1::::<><>::res://Enemies/Enemies.gd<>uid://dgfllrsxxlk2g::::res://Enemies/deku_baba_front_rough_by_gamekrazzyproduction_d8mdygw-fullview (3) (1).png<>uid://5xtwno08u6on::::res://GeneralNodes/HurtBox/hurt_box.tscn<>uid://bslgj5s2welxu::::res://GeneralNodes/Hitbox/hit_box.tscn<>uid://camor2kqjb8gj::::res://Sounds/LTTP_Enemy_Collision.ogg<>uid://d31xmg24gexjv::::res://Sounds/LTTP_Enemy_Defeat.ogg<>res://Enemies/Scripts/enemy_state_machine.gd<>res://Enemies/States/enemy_idle_state.gd<>res://Enemies/States/enemy_stun_state.gd<>res://Enemies/States/enemy_destroy_state.gd<>uid://c63eo51w2x4w7::::res://art/artworks/83385.png<>res://Enemies/States/enemy_kampf_state.gd<>res://Enemies/States/enemy_chase_state.gd<>uid://bdc47ajarlkr5::::res://Enemies/vision_area.tscn
+export_presets.cfg::TextFile::-1::1736412528::0::1::::<><>::
+level_transition_round.tscn::PackedScene::2868108779305680061::1736412804::0::1::::<><>::res://Levels/Level_skripts/level_transition_round.gd
+zelda Ocarina of time.apple-touch-icon.png::CompressedTexture2D::6109512566263555359::1736412528::1736417302::1::::<><>::
+zelda Ocarina of time.icon.png::CompressedTexture2D::8720631476492223631::1736412528::1736417302::1::::<><>::
+zelda Ocarina of time.png::CompressedTexture2D::3738598428173161128::1736412528::1736417302::1::::<><>::
+::res://00_Globals/::1736417264
+global_level_manager.gd::GDScript::-1::1734827860::0::1::::<>Node<>::
+global_player_manager.gd::GDScript::-1::1734826456::0::1::::<>Node<>::
+::res://art/::1736417265
+Gohma.png::CompressedTexture2D::1910763237611604624::1736345566::1736417302::1::::<><>::
+::res://art/artworks/::1736417265
+7584.png::CompressedTexture2D::6869857610063315644::1733612334::1733903600::1::::<><>::
+7637.png::CompressedTexture2D::1296254662222542971::1730402258::1731310406::1::::<><>::
+7644.png::CompressedTexture2D::4828278645904969205::1730508750::1731310406::1::::<><>::
+20701.png::CompressedTexture2D::2308653343621318746::1730507836::1731310406::1::::<><>::
+28729.png::CompressedTexture2D::8208467215127791047::1730508788::1731310406::1::::<><>::
+28730.png::CompressedTexture2D::1608913275072286728::1730508782::1731310406::1::::<><>::
+28731.png::CompressedTexture2D::6971728183640693484::1730508760::1731310406::1::::<><>::
+28732.png::CompressedTexture2D::1286459191195529652::1730508742::1731310408::1::::<><>::
+28733.png::CompressedTexture2D::5809367739229715465::1730503850::1731310408::1::::<><>::
+28734.png::CompressedTexture2D::7297713465385909171::1730508804::1731310408::1::::<><>::
+28735.png::CompressedTexture2D::5163439732194506204::1730508820::1731310408::1::::<><>::
+28736.png::CompressedTexture2D::1161548978593900146::1730508828::1731310408::1::::<><>::
+28737.png::CompressedTexture2D::7728613702756725910::1730508810::1731310408::1::::<><>::
+28893.png::CompressedTexture2D::788728286913256128::1730508792::1731310408::1::::<><>::
+28894.png::CompressedTexture2D::7433719369680924116::1730508770::1731310410::1::::<><>::
+42487.png::CompressedTexture2D::3433962926430552823::1730402078::1731310410::1::::<><>::
+59288.png::CompressedTexture2D::5614205581453853188::1730508866::1731310412::1::::<><>::
+82158.png::CompressedTexture2D::3279313254743427824::1730402068::1731310410::1::::<><>::
+83194.png::CompressedTexture2D::4743518963672278125::1730402100::1731310410::1::::<><>::
+83385.png::CompressedTexture2D::7006767583266631976::1730503902::1731310410::1::::<><>::
+83419.png::CompressedTexture2D::5486472524322138552::1730508798::1731310410::1::::<><>::
+88873.png::CompressedTexture2D::7483685671776176495::1730508872::1731310400::1::::<><>::
+112337.png::CompressedTexture2D::3529385031220059287::1730506552::1731310398::1::::<><>::
+146347.png::CompressedTexture2D::4631439945707476153::1730508878::1731310400::1::::<><>::
+195654.png::CompressedTexture2D::5814304736466329057::1730402296::1731310398::1::::<><>::
+196090.png::CompressedTexture2D::6275433433514147074::1730401906::1731310398::1::::<><>::
+197471.png::CompressedTexture2D::695888885533772643::1730401942::1731310398::1::::<><>::
+197566.png::CompressedTexture2D::1471902498456706145::1730401950::1731310400::1::::<><>::
+197625.png::CompressedTexture2D::8315166521158291957::1730401984::1731310400::1::::<><>::
+199422.png::CompressedTexture2D::1093127967780758924::1730401876::1731310400::1::::<><>::
+200215.png::CompressedTexture2D::2709762429414093459::1730503726::1731310400::1::::<><>::
+200825.png::CompressedTexture2D::7199330818098648490::1730401964::1731310400::1::::<><>::
+200916.png::CompressedTexture2D::8554532214328048123::1730401974::1731310400::1::::<><>::
+201388.png::CompressedTexture2D::5238155753477520010::1730401880::1731310400::1::::<><>::
+Green Soldier.png::CompressedTexture2D::6632292752004186726::1730401634::1731310402::1::::<><>::
+lsl8yewz0wk61.webp::CompressedTexture2D::924619074244749110::1730507140::1731310404::1::::<><>::
+Ocarina-Gone-2D. (1).png::CompressedTexture2D::1591686747080465707::1730666464::1731310402::1::::<><>::
+::res://art/Graphics/::1736417265
+Boulder.png::CompressedTexture2D::6736114645026667338::1405454550::1731310402::1::::<><>::
+Deku.png::CompressedTexture2D::5292658076443257407::1404935528::1731310402::1::::<><>::
+Deku_Baba.png::CompressedTexture2D::2199376761229302656::1404007304::1731310402::1::::<><>::
+Deku_Background.png::CompressedTexture2D::5816123952053030171::1404874158::1731310404::1::::<><>::
+Deku_Scrub.png::CompressedTexture2D::6719358464239540554::1404853990::1731310422::1::::<><>::
+Deku_Tree.png::CompressedTexture2D::8091298540169304338::1733527680::1733527680::1::::<><>::
+Deku_Tree_Puzzles.png::CompressedTexture2D::3316993827455674762::1405557434::1731310424::1::::<><>::
+deku_tree_update______top_floor__by_gamekrazzyproduction_d8uj31f-375w-2x.jpg::CompressedTexture2D::581161223248572695::1734913802::1736009408::1::::<><>::
+Doors.png::CompressedTexture2D::3777858174800285099::1401129756::1731310422::1::::<><>::
+Drawbridge.png::CompressedTexture2D::6825010947230752486::1405280974::1731310422::1::::<><>::
+Enemy_0.png::CompressedTexture2D::7295810176729947604::1404437544::1731310422::1::::<><>::
+Fire.png::CompressedTexture2D::2309457166848640621::1402186844::1731310422::1::::<><>::
+font.png::CompressedTexture2D::1066029669028368197::1404956882::1731310422::1::::<><>::
+Gohma.png::CompressedTexture2D::8147265160525646703::1405689620::1731310422::1::::<><>::
+Gohma_Larva.png::CompressedTexture2D::3346205952290879813::1398196554::1731310420::1::::<><>::
+Grass.png::CompressedTexture2D::6184076161107410669::1388029232::1731310420::1::::<><>::
+Icons.png::CompressedTexture2D::2218834688031870035::1405889350::1731310420::1::::<><>::
+image (32).png::CompressedTexture2D::4938857462726786820::1733530116::1733530118::1::::<><>::
+image (33).png::CompressedTexture2D::1725578810364293756::1733538622::1733538622::1::::<><>::
+image (34).png::CompressedTexture2D::7817530227211498346::1733542230::1733542230::1::::<><>::
+Interface.png::CompressedTexture2D::4489713450663593967::1405186322::1731310420::1::::<><>::
+Kokiri.png::CompressedTexture2D::269360084403879484::1405057996::1731310420::1::::<><>::
+Light.png::CompressedTexture2D::5814278083743548340::1400955552::1731310420::1::::<><>::
+Link new (2).png::CompressedTexture2D::3916199419475978750::1732007792::1732007820::1::::<><>::
+Link new.png::CompressedTexture2D::1284579875595439028::1732007648::1732007700::1::::<><>::
+Link.png::CompressedTexture2D::5162636252854455931::1405396626::1731310418::1::::<><>::
+linkus (1).png::CompressedTexture2D::3828880568801069649::1733613082::1733903600::1::::<><>::
+linkus.png::CompressedTexture2D::1613943198901003647::1733612352::1733903600::1::::<><>::
+Link_Sprite.png::CompressedTexture2D::2309650003124866468::1732098778::1732098970::1::::<><>::
+Link_Sprite_2.png::CompressedTexture2D::1908507820152733678::1732100490::1732100490::1::::<><>::
+Logo.png::CompressedTexture2D::1772554121689946251::1395791126::1731310418::1::::<><>::
+Mario0.png::CompressedTexture2D::7665060396123642985::1405679912::1731310418::1::::<><>::
+Pause_Screens.png::CompressedTexture2D::5522780252047262321::1404931974::1731310424::1::::<><>::
+Rain.png::CompressedTexture2D::1000587802879557678::1405308370::1731310412::1::::<><>::
+Skulltula.png::CompressedTexture2D::4078237276323991394::1390017538::1731310412::1::::<><>::
+Skullwalltula.png::CompressedTexture2D::793035161795359701::1402344266::1731310412::1::::<><>::
+Standard_Characters.png::CompressedTexture2D::4454507633848842545::1405656368::1731310412::1::::<><>::
+Stone.png::CompressedTexture2D::8513526665229119080::1392658406::1731310412::1::::<><>::
+text.png::CompressedTexture2D::9092266685032037551::1393480272::1731310412::1::::<><>::
+Torch.png::CompressedTexture2D::4812761844644828941::1402185250::1731310412::1::::<><>::
+Treasure_Chest.png::CompressedTexture2D::2549080312216238035::1404674070::1731310414::1::::<><>::
+Water.png::CompressedTexture2D::5486640444377604636::1404705104::1731310414::1::::<><>::
+zelda__oot_2d_deku_tree_dungeon___entrance_by_gamekrazzyproduction_d8ftuhe-375w-2x.jpg::CompressedTexture2D::7113227355943083588::1734913804::1736009408::1::::<><>::
+::res://art/map/::1736417265
+image (14).png::CompressedTexture2D::7196160576776266410::1731249064::1731310414::1::::<><>::
+image (15).png::CompressedTexture2D::4737898819882437901::1731249810::1731310414::1::::<><>::
+image (16).png::CompressedTexture2D::3663839219619941698::1731250378::1731310414::1::::<><>::
+image (17).png::CompressedTexture2D::8202141291443197153::1731250628::1731310414::1::::<><>::
+image (18).png::CompressedTexture2D::6549448605719332902::1731252258::1731310416::1::::<><>::
+image (19).png::CompressedTexture2D::4070411164449452769::1731254016::1731310416::1::::<><>::
+image (20).png::CompressedTexture2D::4210785214507425384::1731254326::1731310416::1::::<><>::
+image (21).png::CompressedTexture2D::6393687202800568526::1731257260::1731310416::1::::<><>::
+image (22).png::CompressedTexture2D::271090781116139396::1731257806::1731310416::1::::<><>::
+image (23).png::CompressedTexture2D::8915734900124788018::1731257948::1731310416::1::::<><>::
+image (24).png::CompressedTexture2D::1449121301018484452::1731261552::1731310416::1::::<><>::
+image (25).png::CompressedTexture2D::3817672133783157539::1731262072::1731310418::1::::<><>::
+image (26).png::CompressedTexture2D::6831322426327161309::1731262760::1731310418::1::::<><>::
+image (27).png::CompressedTexture2D::3136691191152824914::1731267040::1731310418::1::::<><>::
+image (31).png::CompressedTexture2D::596950652382428171::1731274748::1731310388::1::::<><>::
+image (36).png::CompressedTexture2D::4006937346245297693::1734915434::1736009402::1::::<><>::
+New Piskel (13).png::CompressedTexture2D::1422850836071849932::1732547002::1732547078::1::::<><>::
+New Piskel (14).png::CompressedTexture2D::565598422380087672::1732623216::1732623276::1::::<><>::
+New Piskel (15).png::CompressedTexture2D::5789777071895453853::1732628300::1732628330::1::::<><>::
+New Piskel (16).png::CompressedTexture2D::1605490534457671763::1732705732::1732705734::1::::<><>::
+New Piskel (17).png::CompressedTexture2D::2339625782026911934::1732706374::1732706374::1::::<><>::
+New Piskel (18).png::CompressedTexture2D::6918370626775516507::1732708480::1732708482::1::::<><>::
+New Piskel (19).png::CompressedTexture2D::3540829686825958368::1732796562::1732796564::1::::<><>::
+New Piskel (20).png::CompressedTexture2D::1313583979196436654::1732797140::1732797140::1::::<><>::
+New Piskel (34).png::CompressedTexture2D::6159324315683156516::1731247236::1731310388::1::::<><>::
+New Piskel (36).png::CompressedTexture2D::2368943318769993121::1731247372::1731310386::1::::<><>::
+New Piskel (37).png::CompressedTexture2D::1669560984394041876::1731247420::1731310386::1::::<><>::
+New Piskel (38).png::CompressedTexture2D::3227071346361435482::1731247458::1731310386::1::::<><>::
+New Piskel (39).png::CompressedTexture2D::3288592792367513326::1731247510::1731310386::1::::<><>::
+New Piskel (40).png::CompressedTexture2D::7847656720470650295::1731247580::1731310386::1::::<><>::
+New Piskel (41).png::CompressedTexture2D::3747277047307124573::1731247648::1731310386::1::::<><>::
+New Piskel (42).png::CompressedTexture2D::5742596467002895585::1731247744::1731310386::1::::<><>::
+New Piskel (43).png::CompressedTexture2D::7904514197233524339::1731247788::1731310386::1::::<><>::
+New Piskel (44).png::CompressedTexture2D::918640575850115199::1731247836::1731310386::1::::<><>::
+New Piskel (45).png::CompressedTexture2D::1315631200574577448::1731248164::1731310386::1::::<><>::
+New Piskel (46).png::CompressedTexture2D::8107540265491116041::1731257426::1731310382::1::::<><>::
+New Piskel (47).png::CompressedTexture2D::6807642509678243177::1731266716::1731310382::1::::<><>::
+New Piskel (48).png::CompressedTexture2D::7170770497126002528::1731271796::1731310382::1::::<><>::
+New Piskel (56).png::CompressedTexture2D::274398182353095518::1732568564::1732568636::1::::<><>::
+New Piskel (58).png::CompressedTexture2D::1625458522767908662::1733086008::1733079268::1::::<><>::
+New Piskel (59).png::CompressedTexture2D::6407140831885774918::1733086040::1733086044::1::::<><>::
+Water.png::CompressedTexture2D::3308969347311899591::1732908900::1732908900::1::::<><>::
+::res://art/Player/::1736417265
+deku_baba_front_rough_by_gamekrazzyproduction_d8mdygw-fullview (3) (1).png::CompressedTexture2D::149885188412274169::1736149276::1736417302::1::::<><>::
+image (12).png::CompressedTexture2D::8585053301346143690::1731003074::1731310382::1::::<><>::
+image (13).png::CompressedTexture2D::3994170729474459360::1731003228::1731310382::1::::<><>::
+Link go down frame 1.png::CompressedTexture2D::5723068910563946229::1730403420::1731310382::1::::<><>::
+Link go down frame 2.png::CompressedTexture2D::6701245531435883347::1730403680::1731310384::1::::<><>::
+Link go down frame 3.png::CompressedTexture2D::1901560302485499343::1730403892::1731310384::1::::<><>::
+Link go down frame 4.png::CompressedTexture2D::2896352283238747417::1730404098::1731310384::1::::<><>::
+Link go down frame 5.png::CompressedTexture2D::147620357856488300::1730404296::1731310384::1::::<><>::
+Link go down frame 6.png::CompressedTexture2D::3908331270211427522::1730404488::1731310384::1::::<><>::
+Link go down frame 7.png::CompressedTexture2D::3603462214647820540::1730404602::1731310384::1::::<><>::
+Link go down frame 8.png::CompressedTexture2D::8256180609900884417::1730404774::1731310384::1::::<><>::
+Link go frame 1.png::CompressedTexture2D::7604415599526823781::1730667834::1731310396::1::::<><>::
+Link go frame 2.png::CompressedTexture2D::8901978613705950718::1730667964::1731310396::1::::<><>::
+Link go frame 3.png::CompressedTexture2D::4525547108854310540::1730668138::1731310396::1::::<><>::
+Link go frame 4.png::CompressedTexture2D::2692377852265522145::1730668268::1731310396::1::::<><>::
+Link go frame 5.png::CompressedTexture2D::7817120953274871726::1730668408::1731310396::1::::<><>::
+Link go frame 6.png::CompressedTexture2D::9016873875070804036::1730668710::1731310396::1::::<><>::
+Link go frame 7.png::CompressedTexture2D::6747791589202275866::1730668864::1731310396::1::::<><>::
+Link go frame 8.png::CompressedTexture2D::5153939377518486604::1730669010::1731310394::1::::<><>::
+Link go up frame 1.png::CompressedTexture2D::4376078586135869631::1730666750::1731310394::1::::<><>::
+Link go up frame 2.png::CompressedTexture2D::4089417180813379551::1730666916::1731310394::1::::<><>::
+Link go up frame 3.png::CompressedTexture2D::3731001918727563345::1730667068::1731310394::1::::<><>::
+Link go up frame 4.png::CompressedTexture2D::6488789681391579901::1730667138::1731310394::1::::<><>::
+Link go up frame 5.png::CompressedTexture2D::6854747877188027135::1730667256::1731310394::1::::<><>::
+Link go up frame 6.png::CompressedTexture2D::3306465857658205611::1730667350::1731310394::1::::<><>::
+Link go up frame 7.png::CompressedTexture2D::5251752782614142486::1730667438::1731310392::1::::<><>::
+Link go up frame 8.png::CompressedTexture2D::5505732166646875487::1730667564::1731310392::1::::<><>::
+link sprite 5.0.png::CompressedTexture2D::7545609732417261652::1732536100::1736417302::1::::<><>::
+Link standart frame o.w.png::CompressedTexture2D::8444095651293040013::1730403370::1731310392::1::::<><>::
+Link_Sprite.png::CompressedTexture2D::7943006086814413534::1732098926::1736417302::1::::<><>::
+New Piskel (28).png::CompressedTexture2D::2528062613122914560::1731001978::1731310392::1::::<><>::
+New Piskel (29).png::CompressedTexture2D::7595036178960068646::1731002194::1731310392::1::::<><>::
+New Piskel (30).png::CompressedTexture2D::8038075339808369707::1731002566::1731310392::1::::<><>::
+New Piskel (31).png::CompressedTexture2D::28420454130230685::1731002728::1731310390::1::::<><>::
+New Piskel (33).png::CompressedTexture2D::613149221737978301::1731002902::1731310390::1::::<><>::
+::res://Enemies/::1736417265
+deku_baba_front_rough_by_gamekrazzyproduction_d8mdygw-fullview (3) (1).png::CompressedTexture2D::7591405454110808556::1736149220::1736417302::1::::<><>::
+deku_baba_front_rough_by_gamekrazzyproduction_d8mdygw-fullview (3).png::CompressedTexture2D::841235550102612477::1736038284::1736417302::1::::<><>::
+Enemies.gd::GDScript::-1::1733610180::0::1::::Enemy<>CharacterBody2D<>::
+vision_area.tscn::PackedScene::2602933922236903856::1736412804::0::1::::<><>::res://Enemies/Scripts/vision_area_script.gd
+::res://Enemies/Gohma/::1736417265
+Gohma.png::CompressedTexture2D::3837020271374513819::1736345566::1736417302::1::::<><>::
+Gohma.tscn::PackedScene::2579369386701327581::1736412796::0::1::::<><>::res://Enemies/Enemies.gd<>uid://bdc47ajarlkr5::::res://Enemies/vision_area.tscn<>uid://buwxfs0k0dc4r::::res://Enemies/Gohma/Gohma.png<>uid://bslgj5s2welxu::::res://GeneralNodes/Hitbox/hit_box.tscn<>uid://5xtwno08u6on::::res://GeneralNodes/HurtBox/hurt_box.tscn<>uid://bc0bvjbvy1kcg::::res://Sounds/OoT/OOT_Gohma_DieX.wav<>uid://bjr7i6g1i2k50::::res://Sounds/OoT/OOT_Gohma_HitX.wav<>res://Enemies/Scripts/enemy_state_machine.gd<>res://Enemies/States/enemy_idle_state.gd<>res://Enemies/States/enemy_wander_state.gd<>res://Enemies/States/enemy_stun_state.gd<>res://Enemies/States/enemy_destroy_state.gd<>res://Enemies/States/enemy_chase_state.gd<>uid://c63eo51w2x4w7::::res://art/artworks/83385.png
+::res://Enemies/goma lava new/::1736417265
+goma_lava_new.tscn::PackedScene::3005588889419854217::1736412796::0::1::::<><>::res://Enemies/Enemies.gd<>uid://bnw6r101y74rp::::res://art/Graphics/Gohma_Larva.png<>res://Enemies/Scripts/enemy_state_machine.gd<>uid://bslgj5s2welxu::::res://GeneralNodes/Hitbox/hit_box.tscn<>res://Enemies/States/enemy_idle_state.gd<>uid://camor2kqjb8gj::::res://Sounds/LTTP_Enemy_Collision.ogg<>res://Enemies/States/enemy_stun_state.gd<>uid://5xtwno08u6on::::res://GeneralNodes/HurtBox/hurt_box.tscn<>uid://c63eo51w2x4w7::::res://art/artworks/83385.png<>uid://d31xmg24gexjv::::res://Sounds/LTTP_Enemy_Defeat.ogg<>res://Enemies/States/enemy_wander_state.gd<>res://Enemies/States/enemy_destroy_state.gd<>res://Enemies/States/enemy_chase_state.gd<>uid://bdc47ajarlkr5::::res://Enemies/vision_area.tscn
+::res://Enemies/Scripts/::1736417265
+enemy_state_machine.gd::GDScript::-1::1733585158::0::1::::EnemyStateMachine<>Node<>::
+vision_area_script.gd::GDScript::-1::1736325838::0::1::::VisionArea<>Area2D<>::
+::res://Enemies/States/::1736417265
+enemy_angriff_state.gd::GDScript::-1::1736259018::0::1::::EnemyStateAttack<>EnemyState<>::
+enemy_chase_state.gd::GDScript::-1::1736331888::0::1::::EnemyStateChase<>EnemyState<>::
+enemy_destroy_state.gd::GDScript::-1::1736174434::0::1::::EnemyStateDestory<>EnemyState<>::
+enemy_idle_state.gd::GDScript::-1::1733587066::0::1::::EnemyStateIdle<>EnemyState<>::
+enemy_kampf_state.gd::GDScript::-1::1736332446::0::1::::EnemyStateKampf<>EnemyState<>::
+enemy_state.gd::GDScript::-1::1733585156::0::1::::EnemyState<>Node<>::
+enemy_stun_state.gd::GDScript::-1::1733610180::0::1::::EnemyStateStun<>EnemyState<>::
+enemy_wander_state.gd::GDScript::-1::1733601248::0::1::::EnemyStateWander<>EnemyState<>::
+::res://fonts/::1736417265
+icon.svg::CompressedTexture2D::831945652341813372::1731000044::1731310390::1::::<><>::
+::res://GeneralNodes/::1736417265
+::res://GeneralNodes/Hitbox/::1736417265
+Hitbox.tscn::PackedScene::4175756509967805943::1733088740::0::1::::<><>::
+hit_box.gd::GDScript::-1::1733609670::0::1::::HitBox<>Area2D<>::
+hit_box.tscn::PackedScene::3672910003337394734::1736412796::0::1::::<><>::res://GeneralNodes/Hitbox/hit_box.gd
+::res://GeneralNodes/HurtBox/::1736417265
+hurt_box.gd::GDScript::-1::1733609670::0::1::::HurtBox<>Area2D<>::
+hurt_box.tscn::PackedScene::2154339613424437685::1736412796::0::1::::<><>::res://GeneralNodes/HurtBox/hurt_box.gd
+::res://GUI/::1736417265
+::res://GUI/player_hud/::1736417265
+82158.png::CompressedTexture2D::8502251712564133736::1734006742::1734006778::1::::<><>::
+heart.gd::GDScript::-1::1734221114::0::1::::HeartGUI<>Control<>::
+heart.tscn::PackedScene::4068661818081737165::1736412796::0::1::::<><>::res://GUI/player_hud/heart.gd<>uid://bsqkwm8fx8af0::::res://GUI/player_hud/New Piskel (26).png
+Interface.png::CompressedTexture2D::2363859425593867578::1733610476::1733903600::1::::<><>::
+New Piskel (21).png::CompressedTexture2D::1919284187328012026::1734005950::1734006036::1::::<><>::
+New Piskel (22).png::CompressedTexture2D::8640784689009118952::1734083302::1734083370::1::::<><>::
+New Piskel (25).png::CompressedTexture2D::3531630730574631950::1734343124::1734343126::1::::<><>::
+New Piskel (26).png::CompressedTexture2D::3683497052154170267::1734343498::1734343500::1::::<><>::
+playerhud.gd::GDScript::-1::1734343164::0::1::::<>CanvasLayer<>::
+Player_hud.tscn::PackedScene::5337496595763120663::1736412796::0::1::::<><>::uid://dtes3xdmwteiq::::res://GUI/player_hud/82158.png<>res://GUI/player_hud/playerhud.gd<>uid://bx75jbfi8wshx::::res://GUI/player_hud/heart.tscn
+::res://Levels/::1736417266
+::res://Levels/Kokiriwald/::1736417265
+links_home.tscn::PackedScene::8060828624096370141::1736412798::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://b6818ps4ecck::::res://tielsets/Tiles/links home.png<>uid://dfivdgbqxs5qq::::res://tielsets/Tiles/links home (1).png<>uid://tj1xls1ottij::::res://tielsets/Tiles/image (35).png<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>res://scripts/level_tile_map.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn
+world.tscn::PackedScene::7340677940932036389::1736412796::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://daftspbqbe3hs::::res://art/map/New Piskel (48).png<>uid://irfxpw52ks5h::::res://art/map/image (31).png<>uid://syksh4usxr7s::::res://art/map/New Piskel (20).png<>uid://bne5ihn6oudp4::::res://art/map/Water.png<>uid://ccmoi4r4hatdc::::res://art/Graphics/image (32).png<>uid://yt5bbymcxu33::::res://art/Graphics/image (33).png<>uid://djm4t0jktaygo::::res://art/Graphics/image (34).png<>uid://ujie7cmsu4xk::::res://art/map/New Piskel (13).png<>uid://d56kepsojy7w::::res://art/map/New Piskel (56).png<>uid://ib8k83gr05se::::res://art/map/New Piskel (14).png<>uid://coqu1usqk43t6::::res://art/map/New Piskel (15).png<>uid://w4ygu5dl7b68::::res://art/map/New Piskel (16).png<>uid://8llka2cm2p4q::::res://art/map/New Piskel (17).png<>uid://c5tks21i8hyjb::::res://art/map/New Piskel (18).png<>uid://bqpg7hpjfttrk::::res://art/map/New Piskel (19).png<>res://scripts/level_tile_map.gd<>uid://belstbjq26h0c::::res://Props/Plant/Pflanze.tscn<>uid://bi26u0a8tm7gn::::res://Enemies/goma lava new/goma_lava_new.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://06aqwem8s1ec::::res://deku_baba.tscn
+::res://Levels/Kokiriwald/DekuBaum/::1736417266
+deku_baum_eg_raum_2.tscn::PackedScene::4515816397860390617::1736412798::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://b3spa7e4wfpc0::::res://Maps/image (36) (2).png<>res://scripts/level_tile_map.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn
+deku_baum_eg_raum_3.tscn::PackedScene::3551981876775346566::1736412800::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://bf02tueyhh7ya::::res://Maps/image (36) (1) (1).png<>res://scripts/level_tile_map.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn
+deku_baum_raum_1.tscn::PackedScene::1991864853503075190::1736412798::0::1::::<><>::uid://bxc8w4uxr4oh6::::res://art/map/image (36).png<>res://Levels/Level_skripts/Level.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>res://scripts/level_tile_map.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>uid://bg4llko54rp4p::::res://level_transition_round.tscn
+deku_baum_raum_1_oben.tscn::PackedScene::4095077601438610365::1736412798::0::1::::<><>::uid://bxc8w4uxr4oh6::::res://art/map/image (36).png<>res://Levels/Level_skripts/Level.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd<>uid://bg4llko54rp4p::::res://level_transition_round.tscn
+deku_baum_raum_og_1.tscn::PackedScene::5988433051453975809::1736412800::0::1::::<><>::uid://h1g5nga41v7w::::res://Maps/image (36) (1) (3) (1) (6).png<>res://Levels/Level_skripts/Level.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd
+deku_baum_ug_1_raum_1.tscn::PackedScene::6576818939707066992::1736412804::0::1::::<><>::uid://cki4yu3llpaoi::::res://Maps/image (36) (1) (3) (1) (1) (4) (2).png<>res://Levels/Level_skripts/Level.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd
+deku_baum_ug_1_raum_2.tscn::PackedScene::3882074054054691166::1736412804::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://drgrlknajj6ht::::res://Maps/New Piskel (61).png<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd
+deku_baum_ug_raum_1.tscn::PackedScene::2725959476225255009::1736412802::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://cv8modij4o15b::::res://Maps/image (36) (1) (3) (1) (1) (4).png<>res://scripts/level_tile_map.gd<>uid://cs8npxb5pansr::::res://Levels/Level_skripts/Player_spwan.tscn<>uid://bg4llko54rp4p::::res://level_transition_round.tscn<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn
+deku_baum_ug_raum_2.tscn::PackedScene::8673089929765475465::1736412802::0::1::::<><>::uid://cxixa2imbjcjc::::res://Maps/image (36) (1) (3) (1) (3) (1).png<>res://Levels/Level_skripts/Level.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd
+deku_baum_ug_raum_3.tscn::PackedScene::2998409230255040993::1736412802::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://eyqpcp4ygvei::::res://Maps/image (36) (1) (3) (1) (4) (1).png<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>res://scripts/level_tile_map.gd
+deku_baum_ug_raum_4.tscn::PackedScene::7043133631522044800::1736412802::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://b1vkr01r8ivd2::::res://Maps/image (36) (1) (3) (1) (5) (1).png<>res://scripts/level_tile_map.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn<>uid://bi26u0a8tm7gn::::res://Enemies/goma lava new/goma_lava_new.tscn
+deku_baum_ug_raum_5.tscn::PackedScene::4063357967430019722::1736412802::0::1::::<><>::res://Levels/Level_skripts/Level.gd<>uid://dokjlnf6olll0::::res://Maps/image (36) (1) (3) (1) (4) (1) (1).png<>res://scripts/level_tile_map.gd<>uid://cd4f746725ats::::res://Levels/Level_skripts/level_transition.tscn
+::res://Levels/Level_skripts/::1736417266
+Level.gd::GDScript::-1::1734817978::0::1::::Level<>Node2D<>::
+level_transition.gd::GDScript::-1::1736003314::0::1::::LevelTransition<>Area2D<>::
+level_transition.tscn::PackedScene::5043637156094107256::1736412796::0::1::::<><>::res://Levels/Level_skripts/level_transition.gd
+level_transition_round.gd::GDScript::-1::1736172184::0::1::::LevelTransitionround<>Area2D<>::
+Player_spwan.gd::GDScript::-1::1734826190::0::1::::<>Node2D<>::
+Player_spwan.tscn::PackedScene::6105182337534276249::1736412796::0::1::::<><>::res://Levels/Level_skripts/Player_spwan.gd<>uid://dfrfdb5csvans::::res://art/Player/link sprite 5.0.png
+::res://Maps/::1736417266
+dekubaum_ teils 1.png::CompressedTexture2D::4272922025143763482::1734911176::1736009402::1::::<><>::
+deku_tree_update______top_floor__by_gamekrazzyproduction_d8uj31f-375w-2x.jpg::CompressedTexture2D::5689810515057374869::1734913758::1736009398::1::::<><>::
+image (36) (1) (1).png::CompressedTexture2D::2790648692369982936::1735665876::1736009398::1::::<><>::
+image (36) (1) (3) (1) (1) (4) (2).png::CompressedTexture2D::5493049571879555052::1735700008::1736009398::1::::<><>::
+image (36) (1) (3) (1) (1) (4).png::CompressedTexture2D::6315685325073460549::1735676056::1736009398::1::::<><>::
+image (36) (1) (3) (1) (1).png::CompressedTexture2D::2582221252848825529::1735668726::1736009402::1::::<><>::
+image (36) (1) (3) (1) (3) (1).png::CompressedTexture2D::6405097714962860820::1735670298::1736009392::1::::<><>::
+image (36) (1) (3) (1) (4) (1) (1).png::CompressedTexture2D::8163116428175432595::1735674850::1736009388::1::::<><>::
+image (36) (1) (3) (1) (4) (1).png::CompressedTexture2D::331298829011127156::1735670582::1736009388::1::::<><>::
+image (36) (1) (3) (1) (5) (1).png::CompressedTexture2D::4255321433606754757::1735674540::1736009388::1::::<><>::
+image (36) (1) (3) (1) (6).png::CompressedTexture2D::545414294957705930::1735667996::1736009392::1::::<><>::
+image (36) (1) (3) (1).png::CompressedTexture2D::4892786590955284918::1735667542::1736009388::1::::<><>::
+image (36) (2).png::CompressedTexture2D::4389779548296243649::1735665870::1736009386::1::::<><>::
+New Piskel (54).png::CompressedTexture2D::4596715664582037271::1732323080::1736009386::1::::<><>::
+New Piskel (61).png::CompressedTexture2D::8365911037388571797::1735700016::1736009388::1::::<><>::
+zelda__oot_2d_deku_tree_dungeon___entrance_by_gamekrazzyproduction_d8ftuhe-375w-2x.jpg::CompressedTexture2D::6125137380684974041::1734913756::1736009388::1::::<><>::
+::res://Maps/Audio/::1732314358
+::res://Music/::1736417266
+Boss.ogg::AudioStreamOggVorbis::5104165859801777156::1404279966::1731310380::1::::<><>::
+Deku_Tree.ogg::AudioStreamOggVorbis::6230885444737923658::1404280578::1731310380::1::::<><>::
+Fairy_Flying.ogg::AudioStreamOggVorbis::4690307670518272137::1405386956::1731310356::1::::<><>::
+Grotto.ogg::AudioStreamOggVorbis::528185217955083497::1404022084::1731310356::1::::<><>::
+House.ogg::AudioStreamOggVorbis::8794937407146406117::1397602304::1731310356::1::::<><>::
+Kokiri.ogg::AudioStreamOggVorbis::1446129281173463549::1404024414::1731310362::1::::<><>::
+Rain.ogg::AudioStreamOggVorbis::970409603164316066::1405316618::1731310358::1::::<><>::
+Shop.ogg::AudioStreamOggVorbis::7490689215234436018::1405688492::1731310362::1::::<><>::
+SMB.ogg::AudioStreamOggVorbis::3792263705914463950::1403850274::1731310364::1::::<><>::
+Title_Screen.ogg::AudioStreamOggVorbis::2901903159494238148::1397604920::1731310370::1::::<><>::
+::res://Props/::1736417266
+::res://Props/Plant/::1736417266
+New Piskel (60).png::CompressedTexture2D::5978466694524099491::1733090598::1733578194::1::::<><>::
+Pflanze.tscn::PackedScene::2691011116684742616::1736412796::0::1::::<><>::uid://crgaqc1s1h7h4::::res://Props/Plant/New Piskel (60).png<>res://Props/Plant/plant.gd<>uid://bslgj5s2welxu::::res://GeneralNodes/Hitbox/hit_box.tscn<>uid://rwybq57dso0i::::res://Sounds/LTTP_Grass_Cut.ogg<>uid://cudu3iqpvlomv::::res://art/Graphics/Grass.png
+plant.gd::GDScript::-1::1734815836::0::1::::Plant<>Node2D<>::
+::res://Props/Sprites/::1733089852
+::res://scenes/::1736417266
+player.tscn::PackedScene::6846220680015972163::1736412796::0::1::::<><>::res://scripts/player.gd<>res://scripts/Player_state_machine.gd<>res://scripts/state_idle.gd<>res://scripts/state_walk.gd<>res://scripts/state_attack.gd<>res://scripts/state_stun.gd<>uid://cm4rboofy5axg::::res://Sounds/OOT_YoungLink_Attack2.wav<>uid://uqe04vlm7q5j::::res://Sounds/OOT_Steps_Grass1.wav<>res://scripts/player_camera.gd<>uid://5xtwno08u6on::::res://GeneralNodes/HurtBox/hurt_box.tscn<>res://scripts/Player_InteractionsHost.gd<>uid://1ittowtyqrly::::res://Sounds/LTTP_Link_Enemy_Collision.ogg<>uid://bus0drynh24sr::::res://art/Graphics/linkus (1).png<>uid://bslgj5s2welxu::::res://GeneralNodes/Hitbox/hit_box.tscn
+::res://scripts/::1736417266
+export_presets.cfg::TextFile::-1::1731489550::0::1::::<><>::
+Global.gd::GDScript::-1::1736009448::0::1::::<>Node<>::
+gohma_lava.gd::GDScript::-1::1732301972::0::1::::<>CharacterBody2D<>::
+level_tile_map.gd::GDScript::-1::1734823630::0::1::::LevelTileMap<>TileMap<>::
+player.gd::GDScript::-1::1734343918::0::1::::Player<>CharacterBody2D<>::
+player_camera.gd::GDScript::-1::1734823748::0::1::::PlayerCamera<>Camera2D<>::
+Player_InteractionsHost.gd::GDScript::-1::1736160140::0::1::::PlayerInteractionsHost<>Node2D<>::
+Player_state_machine.gd::GDScript::-1::1733922650::0::1::::PlayerStateMachine<>Node<>::
+state.gd::GDScript::-1::1733913716::0::1::::state<>Node<>::
+state_attack.gd::GDScript::-1::1733922546::0::1::::State_Attack<>state<>::
+state_idle.gd::GDScript::-1::1733922466::0::1::::state_idle<>state<>::
+state_stun.gd::GDScript::-1::1733921822::0::1::::state_stun<>state<>::
+state_walk.gd::GDScript::-1::1733922766::0::1::::state_walk<>state<>::
+::res://Sounds/::1736417266
+Aim.wav::AudioStreamWAV::89710587967869121::1403825840::1731310430::1::::<><>::
+Crumble.ogg::AudioStreamOggVorbis::4417334429799145170::1401242836::1731310366::1::::<><>::
+Door_Close.wav::AudioStreamWAV::8228794735459953876::1401242388::1731310430::1::::<><>::
+Door_Open.wav::AudioStreamWAV::757146443075228524::1401242080::1731310432::1::::<><>::
+Door_Unbar.wav::AudioStreamWAV::6367236128405273143::1401480812::1731310434::1::::<><>::
+Fire.wav::AudioStreamWAV::3186644568859358139::1404351098::1731310434::1::::<><>::
+Gohma_0.ogg::AudioStreamOggVorbis::3777188447516740408::1404859194::1731310368::1::::<><>::
+Gohma_1.ogg::AudioStreamOggVorbis::2802415372482739359::1405625228::1731310368::1::::<><>::
+Jump.wav::AudioStreamWAV::8906860093836825824::1403828636::1731310436::1::::<><>::
+Link_Jump.wav::AudioStreamWAV::3164661681866378563::1401483488::1731310438::1::::<><>::
+Link_Land.wav::AudioStreamWAV::5143685672127345151::1401483688::1731310444::1::::<><>::
+LTTP_Arrow_Shoot.ogg::AudioStreamOggVorbis::3246766000993762638::1394316142::1731310370::1::::<><>::
+LTTP_Bomb_Blow.wav::AudioStreamWAV::8047505758755690823::1405665700::1731310442::1::::<><>::
+LTTP_Bomb_Drop.wav::AudioStreamWAV::905712029903842867::1405665970::1731310442::1::::<><>::
+LTTP_Boss_Hit.wav::AudioStreamWAV::8257497364039521528::1405664834::1731310440::1::::<><>::
+LTTP_Dungeon_Open.wav::AudioStreamWAV::122463169814785525::1405103682::1731310440::1::::<><>::
+LTTP_Enemy_Collision.ogg::AudioStreamOggVorbis::4798495731147602673::1390034594::1731310370::1::::<><>::
+LTTP_Enemy_Defeat.ogg::AudioStreamOggVorbis::9179641773085901059::1390034646::1731310370::1::::<><>::
+LTTP_Get_Item.ogg::AudioStreamOggVorbis::1240249015184731129::1395505222::1731310372::1::::<><>::
+LTTP_Grass_Cut.ogg::AudioStreamOggVorbis::1240086534232567506::1390034672::1731310372::1::::<><>::
+LTTP_Grass_Walk_2.wav::AudioStreamWAV::8675795605622478397::1387877176::1731310436::1::::<><>::
+LTTP_Item.ogg::AudioStreamOggVorbis::3784925551386725634::1390034724::1731310372::1::::<><>::
+LTTP_Link_Enemy_Collision.ogg::AudioStreamOggVorbis::1842613279776669234::1390034754::1731310374::1::::<><>::
+LTTP_Link_Fall.wav::AudioStreamWAV::4016497018630319542::1404911302::1731310434::1::::<><>::
+LTTP_Link_Pickup.ogg::AudioStreamOggVorbis::444262099757690007::1393009352::1731310374::1::::<><>::
+LTTP_Link_Throw.ogg::AudioStreamOggVorbis::1059907168396027148::1393009222::1731310374::1::::<><>::
+LTTP_Menu_Cursor.ogg::AudioStreamOggVorbis::1302461769712754942::1394316406::1731310374::1::::<><>::
+LTTP_Menu_Item.ogg::AudioStreamOggVorbis::109527321788795356::1394316958::1731310374::1::::<><>::
+LTTP_Sword1.ogg::AudioStreamOggVorbis::1420801170661306518::1390034770::1733909164::1::::<><>::
+LTTP_Sword_Charge.wav::AudioStreamWAV::1807642887346640144::1405665244::1731310428::1::::<><>::
+LTTP_Sword_Spin.ogg::AudioStreamOggVorbis::2299848816169149580::1390034788::1731310376::1::::<><>::
+LTTP_Water_Walk.wav::AudioStreamWAV::7645994988181783422::1405106012::1731310428::1::::<><>::
+OOT_Steps_Grass1.wav::AudioStreamWAV::1437095985779442213::1733596702::1733908066::1::::<><>::
+OOT_Steps_Grass2.wav::AudioStreamWAV::7146795519325774280::1733596702::1733596702::1::::<><>::
+OOT_Steps_Grass3.wav::AudioStreamWAV::2436254904517196713::1733596702::1733596702::1::::<><>::
+OOT_Steps_Grass4.wav::AudioStreamWAV::1155288067205737582::1733596702::1733596702::1::::<><>::
+OOT_YoungLink_Attack2.wav::AudioStreamWAV::5676009177795851940::1733087898::1733087898::1::::<><>::
+Rupee_0.ogg::AudioStreamOggVorbis::5164217580567015430::1390034822::1731310376::1::::<><>::
+Switch.wav::AudioStreamWAV::413153585470002509::1401830670::1731310428::1::::<><>::
+Sword_Wall.ogg::AudioStreamOggVorbis::8790461019144913872::1390118440::1731310378::1::::<><>::
+Treasure_Chest.wav::AudioStreamWAV::9167744809914144134::1401830642::1731310426::1::::<><>::
+::res://Sounds/OoT/::1736417267
+Deku_Baba_0.wav::AudioStreamWAV::8241560605083186562::1402169894::1731310442::1::::<><>::
+Deku_Baba_1.wav::AudioStreamWAV::7420730637472712652::1402170000::1731310436::1::::<><>::
+Drawbridge.ogg::AudioStreamOggVorbis::838899207167819446::1405365748::1731310364::1::::<><>::
+OOT_BigDekuBaba_DieX.wav::AudioStreamWAV::283960300385515374::1736357604::1736417303::1::::<><>::
+OOT_Bomb_Blow.wav::AudioStreamWAV::6510737482149339579::1396846622::1731310432::1::::<><>::
+OOT_Boulder_Loop.wav::AudioStreamWAV::6263380915004046477::1405458180::1731310428::1::::<><>::
+OOT_Bush_Cut.wav::AudioStreamWAV::2545121065697147817::1736358030::1736417303::1::::<><>::
+OOT_DekuBaba_Bite.wav::AudioStreamWAV::5556068797468221568::1736357578::1736417303::1::::<><>::
+OOT_DekuScrub_Hit.wav::AudioStreamWAV::952350701158808419::1401481248::1731310424::1::::<><>::
+OOT_DekuScrub_Spit.wav::AudioStreamWAV::4119366945803029569::1401243194::1731310424::1::::<><>::
+OOT_DekuScrub_Step.wav::AudioStreamWAV::4762814503168916590::1401481434::1731310424::1::::<><>::
+OOT_Epona_Gallop.wav::AudioStreamWAV::5641834963138744849::1405316114::1731310426::1::::<><>::
+OOT_GohmaLarva_DieX.wav::AudioStreamWAV::4010693727473943927::1736357660::1736417303::1::::<><>::
+OOT_GohmaLarva_Hatch.wav::AudioStreamWAV::3568224427361331226::1736357620::1736417303::1::::<><>::
+OOT_GohmaLarva_Hit.wav::AudioStreamWAV::9007517919715997041::1736357632::1736417303::1::::<><>::
+OOT_GohmaLarva_Run (1).wav::AudioStreamWAV::8067485922454133401::1736357652::1736417303::1::::<><>::
+OOT_GohmaLarva_Run.wav::AudioStreamWAV::971953164581716185::1736357648::1736417303::1::::<><>::
+OOT_GohmaLarva_Step.wav::AudioStreamWAV::8664574188120393199::1736357624::1736417303::1::::<><>::
+OOT_Gohma_DieX.wav::AudioStreamWAV::2578506508727634722::1736357908::1736417303::1::::<><>::
+OOT_Gohma_HitX.wav::AudioStreamWAV::3055173567059941205::1736357902::1736417303::1::::<><>::
+OOT_Gohma_Scream.wav::AudioStreamWAV::316386032414040057::1736357862::1736417303::1::::<><>::
+OOT_Gohma_Stun.wav::AudioStreamWAV::8693751152995172553::1736357870::1736417303::1::::<><>::
+OOT_Slingshot_Pull.wav::AudioStreamWAV::3431677197656191117::1736358392::1736417303::1::::<><>::
+OOT_Slingshot_Twang.wav::AudioStreamWAV::3123666317932290729::1736358400::1736417303::1::::<><>::
+OOT_YoungLink_Shiver.wav::AudioStreamWAV::5317145692927776321::1396845712::1731310426::1::::<><>::
+Scrub_Hide.wav::AudioStreamWAV::4182817442838335518::1401207344::1731310428::1::::<><>::
+Scrub_Unhide.wav::AudioStreamWAV::8958690618825126749::1401207358::1731310428::1::::<><>::
+Thunder.ogg::AudioStreamOggVorbis::6684161159129693323::1405361892::1731310366::1::::<><>::
+::res://tielsets/::1736417267
+::res://tielsets/Tiles/::1736417267
+0crz.png::CompressedTexture2D::3166584926573953191::1405893306::1731310390::1::::<><>::
+demo.png::CompressedTexture2D::5771399578668346433::1405725386::1731310390::1::::<><>::
+hse3.png::CompressedTexture2D::8372405521765053152::1405673604::1731310390::1::::<><>::
+image (35).png::CompressedTexture2D::1353787750745023773::1733775966::1733903600::1::::<><>::
+links home (1).png::CompressedTexture2D::7528002022975104232::1734355802::1734355802::1::::<><>::
+links home.png::CompressedTexture2D::136236402716078022::1733774232::1733903600::1::::<><>::
+smb.png::CompressedTexture2D::8747490651204411618::1403847046::1731310388::1::::<><>::
