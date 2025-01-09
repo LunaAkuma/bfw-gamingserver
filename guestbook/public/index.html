@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Gästebuch</title>
-</head>
-<body>
-    <h1>Gästebuch</h1>
-    <form id="guestbookForm">
-        <input type="text" id="name" placeholder="Ihr Name" required>
-        <textarea id="message" placeholder="Ihre Nachricht" required></textarea>
-        <button type="submit">Eintragen</button>
-    </form>
-    <div id="guestbookEntries"></div>
+  </head>
+  <body>
+    <div class="full-background"><div class="container">
+      <div class="center"><h1 class="title">Gästebuch</h1></div>
+      <form id="guestbookForm">
+        <input class="form" type="text" id="name" placeholder="Ihr Name" required />
+        <textarea class="form" id="message" placeholder="Ihre Nachricht" required></textarea>
+        <button id="send-button" type="submit">Eintragen</button>
+      </form>
+      <div id="guestbookEntries">
+        <img
+          class="eintrag-bg"
+          src="assetts/eintrag.png"
+          alt="eintrag hintergrund"
+        />
+      </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

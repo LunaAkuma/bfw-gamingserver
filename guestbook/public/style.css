@@ -1,13 +1,84 @@
 body {
-    font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
-
+#guestbookForm {
+    display: flex;
+    flex-direction: column;
+}
 form {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
+.form {
+    width: 400px;
+    padding: 10px;
+    font-size: 18px;
+    outline:none;
+    background: linear-gradient(to left top, #000, #22132e) fixed;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: all 0.5s;
+  }
+  
+  .form:hover {
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .form:focus {
+    border: 2px solid rgba(255,255,255,0.5);
+    background: linear-gradient(to left top, #000, #4e2d69) fixed;
+  }
+  
+  #send-button {
+    width: 425px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight:bold;
+    outline:none;
+    background: linear-gradient(to left top, #000, #4e2d69) fixed;
+    border-radius: 10px;
+    border: 5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: all 0.5s;
+  }
+  
+  #send-button:hover {
+    border: 5px solid rgba(255,255,255,0.5);
+    background: linear-gradient(to left top, #000, #8b5db0) fixed;
+  }
+  
+  #send-button:focus {
+    background: linear-gradient(to left top, #8b5db0, #000) fixed;
+  }
 #guestbookEntries {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
+  height: 108px;
+  width: 192px;
+}
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+}
+.full-background {
+   
+  background-color: #1e2761;
+  background-image: url(assetts/background.png);
+  height: 100vh;
+}
+.eintrag-bg {
+  border: 1px solid #7a2048;
+  border-radius: 5px;
+  max-width: 100%;
+  max-height: 100%;
+}
+.title {
+  margin: 0;
+  padding: 10px 0;
+  color: white;
+}
+.center {
+  display: flex;
+  justify-content: center;
 }
