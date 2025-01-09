@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://by12q3jkd3f2t"]
+
+[ext_resource type="PackedScene" uid="uid://c2shye2w8pkcf" path="res://ball.tscn" id="1_kfnlj"]
+[ext_resource type="Script" path="res://main.gd" id="1_nnuut"]
+[ext_resource type="PackedScene" uid="uid://dgre71rvry6nd" path="res://player.tscn" id="1_w26uk"]
+[ext_resource type="PackedScene" uid="uid://bd5kxlvyaj43v" path="res://wall.tscn" id="3_q6a78"]
+[ext_resource type="PackedScene" uid="uid://dsuepyd7kx4ah" path="res://computer.tscn" id="4_qh6x2"]
+[ext_resource type="PackedScene" uid="uid://c3o50s35backm" path="res://hud.tscn" id="5_eaxk0"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nnuut")
+
+[node name="Ball" parent="." instance=ExtResource("1_kfnlj")]
+position = Vector2(732, 206)
+
+[node name="TopWall" parent="." instance=ExtResource("3_q6a78")]
+position = Vector2(-957, -20)
+
+[node name="BottomWall" parent="." instance=ExtResource("3_q6a78")]
+position = Vector2(-957, 1074)
+
+[node name="Player2" type="Node" parent="."]
+
+[node name="Mark2D" type="Marker2D" parent="Player2"]
+position = Vector2(1853, 364)
+
+[node name="Player2" parent="Player2" node_paths=PackedStringArray("ball") instance=ExtResource("4_qh6x2")]
+ball = NodePath("../../Ball")
+
+[node name="Player1" type="Node" parent="."]
+
+[node name="Player" parent="Player1" instance=ExtResource("1_w26uk")]
+position = Vector2(80, 196)
+
+[node name="Mark2D" type="Marker2D" parent="Player1"]
+position = Vector2(41, 333)
+
+[node name="HUD" parent="." instance=ExtResource("5_eaxk0")]
+
+[connection signal="gameover" from="Ball" to="." method="_on_ball_gameover"]
