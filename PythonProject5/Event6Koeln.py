@@ -11,6 +11,7 @@ geolocator = Nominatim(user_agent="event_scraper")
 
 event_list = []
 
+
 def scrape_eventbrite():
     url = "https://www.eventbrite.de/d/germany--cologne/events"
     response = requests.get(url)
@@ -21,14 +22,16 @@ def scrape_eventbrite():
         try:
             title_tag = event.find("a", class_="event-card-link")
             title = title_tag.text.strip() if title_tag else "Kein Titel"
-            location_tag = event.find("p", class_="Typography_root__487rx #585163 Typography_body-md__487rx event-card__clamp-line--one Typography_align-match-parent__487rx")
+            location_tag = event.find("p",
+                                      class_="Typography_root__487rx #585163 Typography_body-md__487rx event-card__clamp-line--one Typography_align-match-parent__487rx")
             location = location_tag.text.strip() if location_tag else "Köln"
-            date_tag = event.find("p", class_="Typography_root__487rx #3a3247 Typography_body-md-bold__487rx Typography_align-match-parent__487rx")
+            date_tag = event.find("p",
+                                  class_="Typography_root__487rx #3a3247 Typography_body-md-bold__487rx Typography_align-match-parent__487rx")
             date = date_tag.text.strip() if date_tag else "Kein Datum gefunden"
             link_tag = event.find("a", href=True)
             link = link_tag['href'] if link_tag else "kein Link verfügbar"
 
-            
+            category = title_tag.get("data-event-category", "Sonstiges") if title_tag else "Sonstiges"
 
             address = location
 
@@ -37,6 +40,7 @@ def scrape_eventbrite():
                 "Datum": date,
                 "Ort": location,
                 "Link": link,
+                "Kategorie": category,
                 "Adresse": address,
                 "lat": None,
                 "lon": None
@@ -51,13 +55,35 @@ def scrape_eventbrite():
                     raw_address = address_container.next_sibling.strip()
                     print("Extrahierte Adresse:", raw_address)
                     event_list[-1]["Adresse"] = raw_address
-                    event["Adresse"] = raw_address
+
                 else:
                     print("Adresse nicht gefunden")
-                    event["Adresse"] = "Adresse nicht gefunden"
+
 
         except AttributeError as e:
             print(f"Fehler beim Verarbeiten eines Events von Eventbrite: {e}")
+
+eventbrite_categories = {
+    "music": ["musik", "konzert", "live", "dj", "band"],
+    "art": ["kunst", "ausstellung", "galerie", "museum"],
+    "comedy": ["comedy", "kabarett", "humor", "witz"],
+    "food_and_drink": ["essen", "drink", "food", "cocktail", "dinner"],
+    "sports": ["sport", "fitness", "lauf", "training", "workout"],
+    "workshops": ["workshop", "kurs", "lernen", "seminar"],
+    "party": ["party", "nacht", "club", "tanzen", "disco"],
+    "theatre": ["theater", "aufführung", "bühne", "stück"],
+    "networking": ["netzwerk", "business", "meeting", ],
+    "other": []
+}
+
+def categorize_event_eventbrite(title):
+    title_lower = title.lower()
+    for category, keywords in eventbrite_categories.items():
+        for keyword in keywords:
+            if keyword in title_lower:
+                return category
+    return "other"
+
 
 def scrape_rausgegangen():
     url = "https://rausgegangen.de/"
@@ -87,11 +113,13 @@ def scrape_rausgegangen():
             else:
                 address = "Adresse nicht gefunden"
 
+            category = categorize_event_eventbrite(title)
             event_list.append({
                 "Titel": title,
                 "Datum/Uhrzeit": datetime,
                 "Adresse": address,
                 "Link": detail_link,
+                "Kategorie": category,
                 "lat": None,
                 "lon": None
             })
@@ -100,6 +128,7 @@ def scrape_rausgegangen():
 
         except Exception as e:
             print(f"Fehler beim Verarbeiten eines Events von Rausgegangen: {e}")
+
 
 def geocode_events():
     geocode_cache = {}
@@ -125,24 +154,52 @@ def geocode_events():
         else:
             print(f"Adresse fehlt oder ist ungültig: {address}")
 
+
 def create_map():
     map = folium.Map(location=[50.9375, 6.9603], zoom_start=12)
-    marker_cluster = MarkerCluster().add_to(map)
+
+    category_colors = {
+        "music": "blue",
+        "art": "green",
+        "comedy": "orange",
+        "food_and_drink": "red",
+        "sports": "purple",
+        "workshops": "darkgreen",
+        "party": "pink",
+        "theatre": "darkpurple",
+        "networking": "gray",
+        "other": "black"
+    }
+
+    category_clusters = {
+        category: MarkerCluster(name=category.capitalize()).add_to(map)
+        for category in category_colors
+    }
 
 
     for event in event_list:
         lat = event.get("lat")
         lon = event.get("lon")
         adresse = event.get("Adresse", "Adresse nicht gefunden")
+        category = event.get("Kategorie", "other").lower()
+        if category not in category_colors:
+            category = "other"
+        color = category_colors.get(category, "black")
 
         if lat and lon:
             folium.Marker(
                 location=[lat, lon],
-                popup=f"{event['Titel']}<br>{adresse}<br><a href='{event['Link']}' target='_blank'>Link</a>"
-            ).add_to(marker_cluster)
+                popup=f"{event['Titel']}<br>{adresse}<br><a href='{event['Link']}' target='_blank'>Link</a>",
+                icon=folium.Icon(color=color)
+            ).add_to(category_clusters[category])
         else:
             print(f"Keine Koordinaten für Adresse: {adresse}")
+
+
+    folium.LayerControl(collapsed=False).add_to(map)
+
     map.save("events_map3.html")
+
 
 scrape_eventbrite()
 scrape_rausgegangen()
