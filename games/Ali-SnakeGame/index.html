@@ -282,7 +282,7 @@
       function start() {
         placeFood();
         score = 0; // Punktestand zurücksetzen
-        interval = setInterval(gameLoop, 500); // Spielschritte wiederholen
+        interval = setInterval(gameLoop, 200); // Spielschritte wiederholen
         document.addEventListener("keydown", keyDown); // Tasteneingaben abfangen
         startButton.removeEventListener("click", start);
         startButton.addEventListener("click", stop);
@@ -418,7 +418,7 @@
           clearInterval(interval);
           pauseState = "Pause";
         } else if (e.keyCode == 80 && pauseState !== "Continue") {
-          interval = setInterval(gameLoop, 500);
+          interval = setInterval(gameLoop, 200);
           pauseState = "Continue";
         }
       }
