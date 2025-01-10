@@ -1,45 +1,60 @@
-const mysql = require('mysql');
+const entriesDiv = document.getElementById("entryContainer");
+const authorInput = document.getElementById("name");
+const messageInput = document.getElementById("message");
+const STORAGE_KEY = "guestbookEntries";
 
-// Ersetzen Sie die Platzhalter durch Ihre Datenbankverbindungsdetails
-const connection = mysql.createConnection({
-    host: '3306', // oder die IP-Adresse des MySQL-Servers
-    user: 'mysql',
-    password: 'Y75kuZ1x7m7IBnvrKXItmynaxi6wOde9t1GVGfe4IDy68',
-    database: 'Database'
-});
+let guestbookEntries = [];
 
-// Verbindung zur Datenbank herstellen
-connection.connect((err) => {
-    if (err) {
-        console.error('Fehler bei der Verbindung zur Datenbank: ' + err.stack);
-        return;
-    }
-    console.log('Verbunden mit der Datenbank als ID ' + connection.threadId);
-});
-
-// Funktion zum Speichern eines Eintrags
-function saveEntry(name, message) {
-    return new Promise((resolve, reject) => {
-        const query = 'INSERT INTO entries (name, message) VALUES (?, ?)';
-        connection.query(query, [name, message], (err, results) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(results.insertId);
-        });
-    });
+function loadEntries() {
+  const storedEntries = localStorage.getItem(STORAGE_KEY);
+  if (storedEntries) {
+    guestbookEntries = JSON.parse(storedEntries);
+  }
+  displayEntries();
 }
 
-// Funktion zum Abrufen der Einträge
-function getEntries() {
-    return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM entries', (err, rows) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(rows);
-        });
-    });
+function saveEntries() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(guestbookEntries));
 }
 
-module.exports = { saveEntry, getEntries };
+function displayEntries() {
+  entriesDiv.innerHTML = ""; // Clear existing entries
+
+  guestbookEntries.forEach((entry) => {
+    const entryDiv = document.createElement("div");
+    entryDiv.classList.add("entry"); // Add a class for styling (optional)
+    entryDiv.innerHTML = `
+        <h3>${entry.author}</h3>
+        <p>${entry.message}</p>
+        <small>${entry.creationDate}</small>
+      `;
+    entriesDiv.appendChild(entryDiv);
+  });
+}
+
+function addEntry() {
+  const author = authorInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (author === "" || message === "") {
+    alert("Please enter both your name and a message.");
+    return;
+  }
+
+  const newEntry = {
+    author: author,
+    message: message,
+    creationDate: new Date().toLocaleString(),
+  };
+
+  guestbookEntries.push(newEntry);
+  saveEntries();
+  displayEntries();
+
+  // Clear input fields
+  authorInput.value = "";
+  messageInput.value = "";
+}
+
+// Load entries when the page loads
+window.onload = loadEntries;
